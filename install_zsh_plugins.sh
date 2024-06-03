@@ -47,8 +47,15 @@ else
     echo "fzf is already installed."
 fi
 
+# Clone zsh-z plugin
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z" ]; then
+    git clone https://github.com/agkozak/zsh-z.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+else
+    echo "zsh-z is already installed."
+fi
+
 # Add additional plugins to .zshrc if not already present
-plugins_to_add=("git" "z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions")
+plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions")
 
 for plugin in "${plugins_to_add[@]}"; do
     if ! grep -q "$plugin" ~/.zshrc; then
