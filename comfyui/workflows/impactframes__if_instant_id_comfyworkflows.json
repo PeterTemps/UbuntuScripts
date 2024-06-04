@@ -1,0 +1,612 @@
+{
+  "last_node_id": 23,
+  "last_link_id": 47,
+  "nodes": [
+    {
+      "id": 21,
+      "type": "SaveImage",
+      "pos": [
+        1100,
+        1170
+      ],
+      "size": [
+        320,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 43
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ID/_"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 17,
+      "type": "IDBaseModelLoader_local",
+      "pos": [
+        100,
+        1420
+      ],
+      "size": {
+        "0": 290,
+        "1": 60
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "controlnet",
+          "type": "MODEL",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "MODEL",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IDBaseModelLoader_local",
+        "ttNbgOverride": {
+          "color": "#322",
+          "bgcolor": "#533",
+          "groupcolor": "#A88"
+        }
+      },
+      "widgets_values": [
+        "TURBO\\socababesTurboXL_v12Hybrid.safetensors"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 22,
+      "type": "LoadImage",
+      "pos": [
+        -260,
+        1790
+      ],
+      "size": [
+        320,
+        310
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            44
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "tumblr_nw5t245yNO1r00543o1_r1_250 (1).png",
+        "image"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 9,
+      "type": "ID_Prompt_Styler",
+      "pos": [
+        420,
+        1320
+      ],
+      "size": {
+        "0": 260,
+        "1": 400
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "positive_prompt",
+          "type": "STRING",
+          "links": [
+            45
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "links": [
+            46
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ID_Prompt_Styler",
+        "ttNbgOverride": {
+          "color": "#322",
+          "bgcolor": "#533",
+          "groupcolor": "#A88"
+        }
+      },
+      "widgets_values": [
+        " a woman, retro futurism, retro game",
+        "(lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured (lowres, low quality, worst quality:1.2), (text:1.2), watermark, painting, drawing, illustration, glitch,deformed, mutated, cross-eyed, ugly, disfigured",
+        "Watercolor"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        80,
+        1780
+      ],
+      "size": {
+        "0": 380,
+        "1": 500
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "ttNbgOverride": {
+          "color": "#322",
+          "bgcolor": "#533",
+          "groupcolor": "#A88"
+        }
+      },
+      "widgets_values": [
+        "s-l1200 (1).webp",
+        "image"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": [
+        490,
+        1780
+      ],
+      "size": {
+        "0": 470,
+        "1": 500
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "ttNbgOverride": {
+          "color": "#322",
+          "bgcolor": "#533",
+          "groupcolor": "#A88"
+        }
+      },
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 20,
+      "type": "IDGenerationNode",
+      "pos": [
+        700,
+        1440
+      ],
+      "size": [
+        340,
+        300
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "face_image",
+          "type": "IMAGE",
+          "link": 41
+        },
+        {
+          "name": "pipe",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "insightface",
+          "type": "INSIGHTFACEMODEL",
+          "link": 40
+        },
+        {
+          "name": "pose_image_optional",
+          "type": "IMAGE",
+          "link": 44,
+          "slot_index": 3
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 45,
+          "widget": {
+            "name": "positive"
+          }
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 46,
+          "widget": {
+            "name": "negative"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42,
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IDGenerationNode"
+      },
+      "widgets_values": [
+        "",
+        "",
+        0.8,
+        0.8,
+        12,
+        2.1,
+        true,
+        1098774240674491,
+        "randomize"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 18,
+      "type": "PrepImageForClipVision",
+      "pos": [
+        710,
+        1290
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrepImageForClipVision"
+      },
+      "widgets_values": [
+        "LANCZOS",
+        "top",
+        0.13
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 19,
+      "type": "InsightFaceLoader_Zho",
+      "pos": [
+        50,
+        1670
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INSIGHTFACEMODEL",
+          "type": "INSIGHTFACEMODEL",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InsightFaceLoader_Zho"
+      },
+      "widgets_values": [
+        "CUDA"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 4,
+      "type": "Ipadapter_instantidLoader",
+      "pos": [
+        98,
+        1526
+      ],
+      "size": {
+        "0": 290,
+        "1": 90
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "MODEL",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            47
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Ipadapter_instantidLoader",
+        "ttNbgOverride": {
+          "color": "#322",
+          "bgcolor": "#533",
+          "groupcolor": "#A88"
+        }
+      },
+      "widgets_values": [
+        "E:/models/InstantID/checkpoints",
+        "ip-adapter.bin"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 2,
+      "type": "IDControlNetLoader",
+      "pos": [
+        100,
+        1320
+      ],
+      "size": {
+        "0": 290,
+        "1": 60
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "controlnet",
+          "type": "MODEL",
+          "links": [
+            35
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IDControlNetLoader",
+        "ttNbgOverride": {
+          "color": "#322",
+          "bgcolor": "#533",
+          "groupcolor": "#A88"
+        }
+      },
+      "widgets_values": [
+        "E:/models/InstantID/checkpoints/controlnet"
+      ],
+      "color": "#393939",
+      "bgcolor": "#4d4d4d"
+    },
+    {
+      "id": 23,
+      "type": "Note",
+      "pos": [
+        -370,
+        1120
+      ],
+      "size": {
+        "0": 410,
+        "1": 620
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 5,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        " _ _____    _ _____ _____ _____ _____ _____ _____    _ ____  \n| |   __|  | |   | |   __|_   _|  _  |   | |_   _|  | |    \\ \n| |   __|  | | | | |__   | | | |     | | | | | |    | |  |  |\n|_|__|     |_|_|___|_____| |_| |__|__|_|___| |_|    |_|____/ v1\n                                                             \n\n\nInstant ID workflow that replaces a few nodes no big deal\n\n\nto watch tutorials\n\nhttps://www.youtube.com/@impactframes\n\nhttps://ko-fi.com/impactframes\n\npatreon.com/ImpactFrames coming soon! :)\n\n------------------------------------------------------------                                                \n\n\n                                            ╥╖\n                                           ▓▒▀▌▓╦╦╦╦╦╥╖╓╓\n                                             ▌▒▒▒▒▄▄▄▒▒▒▒╫▓▓▓▓▓▓\n                                            ╣▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓██▌\n                        ╓╓╦╦╦╦╦╦╦╦╦╗╓╓╦╦╦╣▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▌\n                   ╗╣▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▌\n                 ▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▀\n                ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄▒▒▒▒▒▒▒▒▓▓▓▓▀\n                ▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╢▓▓╙ ╙\n                ▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╫▓\n                ▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╫▓╛\n                ╘▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌▓\n                 ▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n                  ▒▒▒▒▒▒▓▓╣▒▒▒▒▒▒▒▒▒▒▒╫▓▓▓▒▒▒▒▒▒╗\n                 ▓▒▒▒▒▒▀▓▓▓▓▓▓╩╩╩╩╩╩╩▀▓▀▀▒▓▀╬▒▒▒▒▌\n                ▓▒▒▒▒▓   ▓▒▒▒▒       ▓▒▒▒▒\n                 ╙╩╜      ╙╩╜ \n\n    \nplease star the repos bellow.\n\n\nhttps://github.com/ZHO-ZHO-ZHO/ComfyUI-InstantID\n\ntroubleshoot video\nhttps://ko-fi.com/s/250070822c\nhttps://youtu.be/yjCa9WALzAs?si=Vw_rxrwBP68OqcAO\n\nModels\nhttps://civitai.com/models/214823/leosam-helloworld-turbo-lcm\nhttps://civitai.com/models/230934/socababes-turbo-xl\n\nprecompiled insightface wheels \n\nhttps://github.com/Gourieff/sd-webui-reactor/raw/main/example/insightface-0.7.3-cp310-cp310-win_amd64.whl\n\nhttps://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp311-cp311-win_amd64.whl\n\nother necessary models are easily searchable with the ComfyUI manager\n\n\nEnjoy\nImpactFrames.\n"
+      ],
+      "color": "#57431a",
+      "bgcolor": "#6b572e"
+    }
+  ],
+  "links": [
+    [
+      35,
+      2,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      36,
+      17,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      37,
+      6,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      19,
+      0,
+      20,
+      2,
+      "INSIGHTFACEMODEL"
+    ],
+    [
+      41,
+      18,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      20,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      20,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      44,
+      22,
+      0,
+      20,
+      3,
+      "IMAGE"
+    ],
+    [
+      45,
+      9,
+      0,
+      20,
+      4,
+      "STRING"
+    ],
+    [
+      46,
+      9,
+      1,
+      20,
+      5,
+      "STRING"
+    ],
+    [
+      47,
+      4,
+      0,
+      20,
+      1,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

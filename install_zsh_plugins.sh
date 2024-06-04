@@ -54,8 +54,16 @@ else
     echo "zsh-z is already installed."
 fi
 
+# Clone zsh-interactive-cd plugin
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive-cd" ]; then
+    git clone https://github.com/changyuheng/zsh-interactive-cd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive-cd
+else
+    echo "zsh-interactive-cd is already installed."
+fi
+
 # Add additional plugins to .zshrc if not already present
-plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions")
+# plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions")
+plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions" "zsh-interactive-cd")
 
 for plugin in "${plugins_to_add[@]}"; do
     if ! grep -q "$plugin" ~/.zshrc; then

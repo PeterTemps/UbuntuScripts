@@ -1,0 +1,720 @@
+{
+  "extra": {},
+  "links": [
+    [
+      2,
+      1,
+      0,
+      3,
+      1,
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      6,
+      0,
+      7,
+      0,
+      "LATENT"
+    ],
+    [
+      5,
+      7,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      9,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      10,
+      0,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      12,
+      0,
+      7,
+      1,
+      "VAE"
+    ],
+    [
+      17,
+      8,
+      0,
+      14,
+      0,
+      "MODEL"
+    ],
+    [
+      18,
+      14,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      19,
+      14,
+      1,
+      9,
+      0,
+      "CLIP"
+    ],
+    [
+      20,
+      14,
+      1,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      21,
+      8,
+      1,
+      14,
+      1,
+      "CLIP"
+    ],
+    [
+      25,
+      19,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      20,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      28,
+      12,
+      0,
+      20,
+      1,
+      "VAE"
+    ]
+  ],
+  "nodes": [
+    {
+      "id": 3,
+      "pos": [
+        1947,
+        357
+      ],
+      "mode": 0,
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "type": "ReActorFaceSwap",
+      "flags": {},
+      "order": 11,
+      "inputs": [
+        {
+          "link": 5,
+          "name": "input_image",
+          "type": "IMAGE",
+          "label": "input_image"
+        },
+        {
+          "link": 2,
+          "name": "source_image",
+          "type": "IMAGE",
+          "label": "source_image"
+        },
+        {
+          "link": null,
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "label": "face_model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "label": "IMAGE",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "label": "FACE_MODEL",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128_fp16.onnx",
+        "retinaface_resnet50",
+        "GFPGANv1.4.pth",
+        1,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "pos": [
+        1617,
+        393
+      ],
+      "mode": 0,
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "type": "VAEDecode",
+      "flags": {},
+      "order": 10,
+      "inputs": [
+        {
+          "link": 4,
+          "name": "samples",
+          "type": "LATENT",
+          "label": "samples"
+        },
+        {
+          "link": 14,
+          "name": "vae",
+          "type": "VAE",
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "label": "IMAGE",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 4,
+      "pos": [
+        2343,
+        474
+      ],
+      "mode": 0,
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "type": "SaveImage",
+      "flags": {},
+      "order": 12,
+      "inputs": [
+        {
+          "link": 3,
+          "name": "images",
+          "type": "IMAGE",
+          "label": "images"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Akalanka1337"
+      ]
+    },
+    {
+      "id": 14,
+      "pos": [
+        176,
+        46
+      ],
+      "mode": 0,
+      "size": {
+        "0": 210,
+        "1": 150
+      },
+      "type": "LoraLoader",
+      "flags": {},
+      "order": 5,
+      "inputs": [
+        {
+          "link": 17,
+          "name": "model",
+          "type": "MODEL",
+          "label": "model"
+        },
+        {
+          "link": 21,
+          "name": "clip",
+          "type": "CLIP",
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "label": "MODEL",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "label": "CLIP",
+          "links": [
+            19,
+            20
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "692571323655984854",
+        "Detail Master LoRA Pro Max - Pro Max",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 17,
+      "pos": [
+        2314,
+        306
+      ],
+      "mode": 0,
+      "size": {
+        "0": 393.0037231445313,
+        "1": 99.2914581298828
+      },
+      "type": "Note",
+      "color": "#432",
+      "flags": {},
+      "order": 0,
+      "bgcolor": "#653",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Suscribe me! -> https://www.youtube.com/@AkalankaEkanayake\nDiscord: https://discord.gg/7GrGwAKPYb\n\nThanks :) 🤩 "
+      ]
+    },
+    {
+      "id": 6,
+      "pos": [
+        1155,
+        308
+      ],
+      "mode": 0,
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "type": "KSampler",
+      "flags": {},
+      "order": 9,
+      "inputs": [
+        {
+          "link": 18,
+          "name": "model",
+          "type": "MODEL",
+          "label": "model",
+          "slot_index": 0
+        },
+        {
+          "link": 7,
+          "name": "positive",
+          "type": "CONDITIONING",
+          "label": "positive",
+          "slot_index": 1
+        },
+        {
+          "link": 8,
+          "name": "negative",
+          "type": "CONDITIONING",
+          "label": "negative",
+          "slot_index": 2
+        },
+        {
+          "link": 26,
+          "name": "latent_image",
+          "type": "LATENT",
+          "label": "latent_image",
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "label": "LATENT",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        990911894067745,
+        "randomize",
+        25,
+        8,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "pos": [
+        -152,
+        70
+      ],
+      "mode": 0,
+      "size": {
+        "0": 210,
+        "1": 122
+      },
+      "type": "CheckpointLoaderSimple",
+      "flags": {},
+      "order": 1,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "label": "MODEL",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "label": "CLIP",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "label": "VAE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "673902277641317225",
+        "Extra Realistic+ XL - v1"
+      ]
+    },
+    {
+      "id": 1,
+      "pos": [
+        1562,
+        563
+      ],
+      "mode": 0,
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "type": "LoadImage",
+      "color": "#232",
+      "flags": {},
+      "order": 2,
+      "bgcolor": "#353",
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "label": "IMAGE",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "label": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "https://7022ae40757f8d53295a57619de9b364.r2.cloudflarestorage.com/tensor-sf-sig/workspace/workflow_image2image/611717731087191472/2524d31e-267b-4b83-9e52-995dfa3ea639.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 12,
+      "pos": [
+        1154,
+        194
+      ],
+      "mode": 0,
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "type": "VAELoader",
+      "flags": {},
+      "order": 3,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "label": "VAE",
+          "links": [
+            14,
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae.safetensors"
+      ]
+    },
+    {
+      "id": 20,
+      "pos": [
+        845,
+        714
+      ],
+      "mode": 0,
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "type": "VAEEncode",
+      "flags": {},
+      "order": 6,
+      "inputs": [
+        {
+          "link": 25,
+          "name": "pixels",
+          "type": "IMAGE",
+          "label": "pixels"
+        },
+        {
+          "link": 28,
+          "name": "vae",
+          "type": "VAE",
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "label": "LATENT",
+          "links": [
+            26
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 19,
+      "pos": [
+        -162,
+        521
+      ],
+      "mode": 0,
+      "size": [
+        315,
+        314
+      ],
+      "type": "LoadImage",
+      "flags": {},
+      "order": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "label": "IMAGE",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "label": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "https://7022ae40757f8d53295a57619de9b364.r2.cloudflarestorage.com/tensor-sf-sig/workspace/workflow_image2image/611717731087191472/2a3fbfd4-150e-4e4b-8bd0-c17dbf1b2f91.png",
+        "image"
+      ]
+    },
+    {
+      "id": 9,
+      "pos": [
+        495,
+        285
+      ],
+      "mode": 0,
+      "size": {
+        "0": 394.6770324707031,
+        "1": 122.58458709716795
+      },
+      "type": "CLIPTextEncode",
+      "flags": {},
+      "order": 7,
+      "inputs": [
+        {
+          "link": 19,
+          "name": "clip",
+          "type": "CLIP",
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "label": "CONDITIONING",
+          "links": [
+            7
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "hyper realistic photo of a happy bubbly cute pretty white filipina-american female model kodak gold 400 film with full frame dsl style raw with long blonde pink ombre hair wearing beige mommy dress in an indoor party setting with floral backdrop."
+      ]
+    },
+    {
+      "id": 10,
+      "pos": [
+        490,
+        457
+      ],
+      "mode": 0,
+      "size": {
+        "0": 397.24609375,
+        "1": 131.9914093017578
+      },
+      "type": "CLIPTextEncode",
+      "flags": {},
+      "order": 8,
+      "inputs": [
+        {
+          "link": 20,
+          "name": "clip",
+          "type": "CLIP",
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "label": "CONDITIONING",
+          "links": [
+            8
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "(chinese, japanese, korean:1.9), (deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, (cloned face:1.2), twins, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck"
+      ]
+    }
+  ],
+  "config": {},
+  "groups": [],
+  "version": 0.4,
+  "last_link_id": 28,
+  "last_node_id": 20
+}

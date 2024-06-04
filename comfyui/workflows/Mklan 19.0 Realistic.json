@@ -1,0 +1,6021 @@
+{
+  "last_node_id": 332,
+  "last_link_id": 463,
+  "nodes": [
+    {
+      "id": 263,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1102.390548677783,
+        -1320.9721317211133
+      ],
+      "size": {
+        "0": 238.09555053710938,
+        "1": 82
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            293
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x_foolhardy_Remacri.pth"
+      ]
+    },
+    {
+      "id": 254,
+      "type": "VAEDecode",
+      "pos": [
+        1753,
+        -1303
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 62,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 278
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 279
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            280
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 257,
+      "type": "UltimateSDUpscale",
+      "pos": [
+        227.60350416648043,
+        -1226.2156767112435
+      ],
+      "size": {
+        "0": 238.3772735595703,
+        "1": 610
+      },
+      "flags": {},
+      "order": 66,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 286
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 282
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 446
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 284
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 285
+        },
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 290,
+          "slot_index": 5
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 326,
+          "widget": {
+            "name": "cfg"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            291
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltimateSDUpscale"
+      },
+      "widgets_values": [
+        2,
+        738700591137509,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        0.2,
+        "Linear",
+        512,
+        512,
+        8,
+        32,
+        "None",
+        1,
+        64,
+        8,
+        16,
+        true,
+        false
+      ]
+    },
+    {
+      "id": 261,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        225.60350416648043,
+        -1332.2156767112433
+      ],
+      "size": {
+        "0": 233.83694458007812,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            290
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x_foolhardy_Remacri.pth"
+      ]
+    },
+    {
+      "id": 262,
+      "type": "SaveImage",
+      "pos": [
+        483,
+        -1328
+      ],
+      "size": {
+        "0": 581.4199829101562,
+        "1": 1017.04052734375
+      },
+      "flags": {},
+      "order": 72,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 291
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "MklanUltimateSDUpscale"
+      ]
+    },
+    {
+      "id": 253,
+      "type": "PixelKSampleUpscalerProvider",
+      "pos": [
+        1088.390548677783,
+        -1217.9721317211133
+      ],
+      "size": {
+        "0": 260.4451904296875,
+        "1": 405.30767822265625
+      },
+      "flags": {},
+      "order": 54,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 274
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 275
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 276
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 277
+        },
+        {
+          "name": "upscale_model_opt",
+          "type": "UPSCALE_MODEL",
+          "link": 293,
+          "slot_index": 4
+        },
+        {
+          "name": "pk_hook_opt",
+          "type": "PK_HOOK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "UPSCALER",
+          "type": "UPSCALER",
+          "links": [
+            292
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PixelKSampleUpscalerProvider"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1008551808895431,
+        "randomize",
+        5,
+        2,
+        "dpm_2_ancestral",
+        "exponential",
+        0.2,
+        false,
+        512
+      ]
+    },
+    {
+      "id": 252,
+      "type": "IterativeLatentUpscale",
+      "pos": [
+        1371,
+        -1332
+      ],
+      "size": {
+        "0": 345.5983581542969,
+        "1": 126
+      },
+      "flags": {},
+      "order": 59,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 305
+        },
+        {
+          "name": "upscaler",
+          "type": "UPSCALER",
+          "link": 292,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            278
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            279
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IterativeLatentUpscale"
+      },
+      "widgets_values": [
+        4,
+        3,
+        ""
+      ]
+    },
+    {
+      "id": 265,
+      "type": "XY Plot",
+      "pos": [
+        239.1582235843483,
+        -2238.9997558593745
+      ],
+      "size": {
+        "0": 315,
+        "1": 194
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "dependencies",
+          "type": "DEPENDENCIES",
+          "link": null
+        },
+        {
+          "name": "X",
+          "type": "XY",
+          "link": 307
+        },
+        {
+          "name": "Y",
+          "type": "XY",
+          "link": 308
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [
+            306
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Plot"
+      },
+      "widgets_values": [
+        0,
+        "False",
+        "Horizontal",
+        "True",
+        "Plot"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 268,
+      "type": "SaveImage",
+      "pos": [
+        849.1582235843495,
+        -2285.9997558593745
+      ],
+      "size": {
+        "0": 932.86767578125,
+        "1": 814.749267578125
+      },
+      "flags": {},
+      "order": 61,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 309
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Test"
+      ]
+    },
+    {
+      "id": 271,
+      "type": "InstructIRProcess",
+      "pos": [
+        3784.9994751274435,
+        -2314.4861366853092
+      ],
+      "size": {
+        "0": 696.3773193359375,
+        "1": 120.00010681152344
+      },
+      "flags": {},
+      "order": 67,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "INSTRUCTIR_MODEL",
+          "link": 318
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 319
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            320
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InstructIRProcess"
+      },
+      "widgets_values": [
+        "please I want this image for my photo album, can you edit it as a photographer",
+        ""
+      ]
+    },
+    {
+      "id": 272,
+      "type": "SaveImage",
+      "pos": [
+        3789.999475127444,
+        -2143.486136685309
+      ],
+      "size": {
+        "0": 674.6815185546875,
+        "1": 721.75439453125
+      },
+      "flags": {},
+      "order": 73,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 320
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Mklan_InstructIR"
+      ]
+    },
+    {
+      "id": 270,
+      "type": "LoadInstructIRModel",
+      "pos": [
+        3973.9994751274444,
+        -2407.4861366853097
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "INSTRUCTIR_MODEL",
+          "type": "INSTRUCTIR_MODEL",
+          "links": [
+            318
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadInstructIRModel"
+      },
+      "widgets_values": [
+        "cpu"
+      ]
+    },
+    {
+      "id": 277,
+      "type": "XY Plot",
+      "pos": [
+        2342.2822058791858,
+        -1641.2034101106692
+      ],
+      "size": {
+        "0": 315,
+        "1": 194
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "dependencies",
+          "type": "DEPENDENCIES",
+          "link": null
+        },
+        {
+          "name": "X",
+          "type": "XY",
+          "link": 344
+        },
+        {
+          "name": "Y",
+          "type": "XY",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [
+            343
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Plot"
+      },
+      "widgets_values": [
+        0,
+        "False",
+        "Horizontal",
+        "True",
+        "Plot"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 174,
+      "type": "VAEDecode",
+      "pos": [
+        2734.5551215277774,
+        -1290.4441460503488
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 60,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 341
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 340
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            104,
+            246,
+            248,
+            263,
+            286,
+            319,
+            356
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 149,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1681,
+        -95
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 69
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 59,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            84,
+            167,
+            311,
+            371
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 225,
+      "type": "VAEEncode",
+      "pos": [
+        384.21368811254973,
+        -193.8931101673579
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 37,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 217
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 376
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 177,
+      "type": "VAELoader",
+      "pos": [
+        560,
+        -47
+      ],
+      "size": {
+        "0": 608.8853149414062,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sd15\\clearvae_v23.safetensors"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 267,
+      "type": "XY Input: Sampler/Scheduler",
+      "pos": [
+        242,
+        -1795
+      ],
+      "size": {
+        "0": 315,
+        "1": 154
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            307
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Sampler/Scheduler"
+      },
+      "widgets_values": [
+        "scheduler",
+        3,
+        "None",
+        "karras",
+        "None",
+        "simple",
+        "None",
+        "exponential",
+        "None",
+        "normal",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None"
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 266,
+      "type": "XY Input: Sampler/Scheduler",
+      "pos": [
+        245.15822358434835,
+        -1990.9997558593757
+      ],
+      "size": {
+        "0": 315,
+        "1": 154
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            308
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Sampler/Scheduler"
+      },
+      "widgets_values": [
+        "sampler",
+        3,
+        "dpmpp_2m_sde",
+        "None",
+        "dpm_2_ancestral",
+        "None",
+        "lcm",
+        "None",
+        "dpmpp_2m_sde",
+        "None",
+        "heun",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None"
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 278,
+      "type": "XY Input: Denoise",
+      "pos": [
+        1944.3369679777054,
+        -1582.4421919722545
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            344
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Denoise"
+      },
+      "widgets_values": [
+        3,
+        0.35000000000000003,
+        0.55
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 170,
+      "type": "LatentUpscaleBy",
+      "pos": [
+        2338,
+        -1316
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 53,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            302,
+            305
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LatentUpscaleBy"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1.5
+      ]
+    },
+    {
+      "id": 307,
+      "type": "String Literal",
+      "pos": [
+        2019.9818641105207,
+        975.8685472254919
+      ],
+      "size": {
+        "0": 312.7717590332031,
+        "1": 76.00003051757812
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            400
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "String Literal"
+      },
+      "widgets_values": [
+        "Describe this image"
+      ]
+    },
+    {
+      "id": 302,
+      "type": "LLavaSamplerAdvanced",
+      "pos": [
+        2353.9818641105176,
+        1090.8685472254913
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 43,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 398,
+          "slot_index": 0
+        },
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "link": 399,
+          "slot_index": 1
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 400,
+          "widget": {
+            "name": "prompt"
+          },
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            402
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLavaSamplerAdvanced"
+      },
+      "widgets_values": [
+        "You are an assistant who perfectly describes images.",
+        "",
+        512,
+        0.1,
+        0.95,
+        40,
+        0,
+        0,
+        1.1,
+        1079,
+        "randomize"
+      ]
+    },
+    {
+      "id": 306,
+      "type": "LoadImage",
+      "pos": [
+        2022.2330738544451,
+        1090.7213003179359
+      ],
+      "size": {
+        "0": 300.854736328125,
+        "1": 314
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            398
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "##MKlan\\Mklan15.1T/mklan__00005_.png [output]",
+        "image"
+      ]
+    },
+    {
+      "id": 245,
+      "type": "SaveImage",
+      "pos": [
+        5156.863176406489,
+        112.20211258312531
+      ],
+      "size": {
+        "0": 1707.70654296875,
+        "1": 1704.08935546875
+      },
+      "flags": {},
+      "order": 80,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 257
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "MKlanDetailLat_Upscx2"
+      ]
+    },
+    {
+      "id": 244,
+      "type": "CR Upscale Image",
+      "pos": [
+        4822.86317640649,
+        132.2021125831252
+      ],
+      "size": {
+        "0": 315,
+        "1": 222
+      },
+      "flags": {},
+      "order": 79,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 256
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            257
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Upscale Image"
+      },
+      "widgets_values": [
+        "4x_NMKD-Superscale-SP_178000_G.pth",
+        "rescale",
+        4,
+        832,
+        "lanczos",
+        "true",
+        8
+      ]
+    },
+    {
+      "id": 199,
+      "type": "SaveImage",
+      "pos": [
+        6550.982602675276,
+        -1239.878120988369
+      ],
+      "size": {
+        "0": 627.2114868164062,
+        "1": 1166.9136962890625
+      },
+      "flags": {},
+      "order": 78,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 172
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "MKlanDetailLat_Upsc"
+      ]
+    },
+    {
+      "id": 198,
+      "type": "FaceDetailer",
+      "pos": [
+        6023.982602675276,
+        -1246.8781209883687
+      ],
+      "size": {
+        "0": 512.7343139648438,
+        "1": 880
+      },
+      "flags": {},
+      "order": 76,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 254
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 350
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 169
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 351
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 444
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 167
+        },
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 227,
+          "slot_index": 6
+        },
+        {
+          "name": "sam_model_opt",
+          "type": "SAM_MODEL",
+          "link": 225,
+          "slot_index": 7
+        },
+        {
+          "name": "segm_detector_opt",
+          "type": "SEGM_DETECTOR",
+          "link": 226,
+          "slot_index": 8
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 328,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 380,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            172,
+            256
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "cropped_refined",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 6
+        },
+        {
+          "name": "cropped_enhanced_alpha",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 6,
+          "slot_index": 2
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "detailer_pipe",
+          "type": "DETAILER_PIPE",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "cnet_images",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 6,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceDetailer"
+      },
+      "widgets_values": [
+        256,
+        true,
+        1216,
+        172836035459661,
+        "randomize",
+        10,
+        1,
+        "dpmpp_3m_sde",
+        "simple",
+        0.25,
+        5,
+        true,
+        true,
+        0.5,
+        10,
+        3,
+        "center-1",
+        0,
+        0.93,
+        0,
+        0.7,
+        "False",
+        10,
+        "",
+        1,
+        false,
+        10
+      ]
+    },
+    {
+      "id": 227,
+      "type": "SAMLoader",
+      "pos": [
+        6030.982602675276,
+        -333.8781209883694
+      ],
+      "size": {
+        "0": 254.7579803466797,
+        "1": 84.14491271972656
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "SAM_MODEL",
+          "type": "SAM_MODEL",
+          "links": [
+            225
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAMLoader"
+      },
+      "widgets_values": [
+        "sam_vit_b_01ec64.pth",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 229,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        6302.982602675276,
+        -330.8781209883693
+      ],
+      "size": {
+        "0": 237.38418579101562,
+        "1": 78
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            227
+          ],
+          "shape": 3
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": [],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8n_v2.pt"
+      ]
+    },
+    {
+      "id": 228,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        6044.982602675276,
+        -202.8781209883689
+      ],
+      "size": {
+        "0": 490.21636962890625,
+        "1": 83.92514038085938
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": [
+            226
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "segm/face_yolov8m-seg_60.pt"
+      ]
+    },
+    {
+      "id": 243,
+      "type": "SaveImage",
+      "pos": [
+        5205.872919928612,
+        -1258.8770223555493
+      ],
+      "size": {
+        "0": 731.0517578125,
+        "1": 1155.1339111328125
+      },
+      "flags": {},
+      "order": 77,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 255
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "MKlanLAT_UPSCBODY"
+      ]
+    },
+    {
+      "id": 242,
+      "type": "DetailerForEach",
+      "pos": [
+        4802.872919928612,
+        -1253.8770223555493
+      ],
+      "size": {
+        "0": 400,
+        "1": 600
+      },
+      "flags": {},
+      "order": 70,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 248
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 247
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 249
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 251
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 250
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 259
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 258
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 327,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 379,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            254,
+            255
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DetailerForEach"
+      },
+      "widgets_values": [
+        384,
+        true,
+        1216,
+        85420116111740,
+        "randomize",
+        10,
+        1,
+        "dpmpp_3m_sde",
+        "simple",
+        0.25,
+        5,
+        true,
+        true,
+        "",
+        1,
+        false,
+        0
+      ]
+    },
+    {
+      "id": 240,
+      "type": "SegmDetectorSEGS",
+      "pos": [
+        4793.872919928612,
+        -613.8770223555574
+      ],
+      "size": {
+        "0": 400,
+        "1": 212.0000457763672
+      },
+      "flags": {},
+      "order": 64,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "segm_detector",
+          "type": "SEGM_DETECTOR",
+          "link": 245,
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 246
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            247
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SegmDetectorSEGS"
+      },
+      "widgets_values": [
+        0.5,
+        10,
+        3,
+        10,
+        "all"
+      ]
+    },
+    {
+      "id": 241,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        4828.872919928612,
+        -335.8770223555608
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": [
+            245
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "segm/person_yolov8m-seg.pt"
+      ]
+    },
+    {
+      "id": 281,
+      "type": "Image Save",
+      "pos": [
+        1202.1329508463514,
+        1441.9118543836819
+      ],
+      "size": {
+        "0": 341.2141418457031,
+        "1": 573.7302856445312
+      },
+      "flags": {},
+      "order": 57,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 372
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "link": 355,
+          "widget": {
+            "name": "filename_prefix"
+          }
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Save"
+      },
+      "widgets_values": [
+        "comparison",
+        "Mklan",
+        "_",
+        4,
+        "false",
+        "png",
+        100,
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": 280,
+      "type": "Checkpoint Loader Simple Mikey",
+      "pos": [
+        1230.1329508463516,
+        1285.9118543836819
+      ],
+      "size": {
+        "0": 280.4903564453125,
+        "1": 114
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "link": 427,
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            367
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "links": [
+            368
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "ckpt_name",
+          "type": "STRING",
+          "links": [
+            355
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "ckpt_hash",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Checkpoint Loader Simple Mikey"
+      },
+      "widgets_values": [
+        "zero123\\stable_zero123.ckpt"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 325,
+      "type": "Simple String",
+      "pos": [
+        -137.65455885187905,
+        -516.6037986724182
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            432
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Simple String"
+      },
+      "widgets_values": [
+        "score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up,"
+      ]
+    },
+    {
+      "id": 275,
+      "type": "Reroute",
+      "pos": [
+        2247.3452682343745,
+        712.4568786621094
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 323,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "FLOAT",
+          "links": [
+            324,
+            326,
+            327,
+            328
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 292,
+      "type": "KSampler (Efficient)",
+      "pos": [
+        1616.1329508463516,
+        1438.9118543836817
+      ],
+      "size": {
+        "0": 329.9300842285156,
+        "1": 569.7302856445312
+      },
+      "flags": {},
+      "order": 52,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 367
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 445
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 371
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 369
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 368
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": null,
+          "slot_index": 5
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 434,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 433,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 435,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            372
+          ],
+          "shape": 3,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        249948644059578,
+        null,
+        15,
+        2,
+        "dpmpp_2m_sde",
+        "karras",
+        1,
+        "auto",
+        "true"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 324,
+      "type": "PrimitiveNode",
+      "pos": [
+        1534.1329508463516,
+        1283.9118543836819
+      ],
+      "size": {
+        "0": 210,
+        "1": 106
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "COMBO",
+          "type": "COMBO",
+          "links": [
+            427
+          ],
+          "widget": {
+            "name": "ckpt_name"
+          }
+        }
+      ],
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "zero123\\stable_zero123.ckpt",
+        "fixed",
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 145,
+      "type": "CR Apply LoRA Stack",
+      "pos": [
+        1685,
+        -196
+      ],
+      "size": {
+        "0": 210,
+        "1": 66
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 374
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 373,
+          "slot_index": 1
+        },
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            442
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            68,
+            69,
+            169,
+            251,
+            448
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Apply LoRA Stack"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 148,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1679,
+        -147
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 68
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 408,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            452
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 303,
+      "type": "LLava Loader Simple",
+      "pos": [
+        2347.9818641105176,
+        874.8685472254913
+      ],
+      "size": {
+        "0": 313.19049072265625,
+        "1": 137.64376831054688
+      },
+      "flags": {},
+      "order": 34,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CUSTOM",
+          "link": 401,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "links": [
+            399
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLava Loader Simple"
+      },
+      "widgets_values": [
+        "llava-v1.6-mistral-7b.Q4_K_M.gguf",
+        2048,
+        27,
+        8
+      ]
+    },
+    {
+      "id": 304,
+      "type": "LlavaClipLoader",
+      "pos": [
+        2017.3926687738372,
+        875.9542042843574
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "clip",
+          "type": "CUSTOM",
+          "links": [
+            401
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LlavaClipLoader"
+      },
+      "widgets_values": [
+        "mmproj-mistral-f16.gguf"
+      ]
+    },
+    {
+      "id": 305,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2683.981864110516,
+        889.8685472254915
+      ],
+      "size": {
+        "0": 470.6667785644531,
+        "1": 2276
+      },
+      "flags": {},
+      "order": 47,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 402,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            416
+          ],
+          "shape": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. "
+        ],
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character with fantasy elements. She has green hair and pointed ears, suggesting she might be from a fantasy setting or a video game. Her attire consists of a pink top and black pants, which contrasts with her skin tone. She's wearing a red bow on her head and has a confident pose, sitting on a bench with one leg crossed over the other. The background features a tropical setting with palm trees and a clear sky, adding to the relaxed atmosphere of the scene. There's no visible text in the image. ",
+        " The image is a digital artwork of a female character, likely from a video game or animation. She has dark hair and is wearing a light-colored dress with floral patterns. Her pose suggests she's standing confidently, with her hands on her hips. The background features a lush green environment with foliage and a hint of a moonlit sky. The overall style is vibrant and cartoonish, typical of modern video game art. "
+      ]
+    },
+    {
+      "id": 321,
+      "type": "Simple String Combine (WLSH)",
+      "pos": [
+        2040,
+        778
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_string",
+          "type": "STRING",
+          "link": 416,
+          "widget": {
+            "name": "input_string"
+          },
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "combined",
+          "type": "STRING",
+          "links": [
+            429
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Simple String Combine (WLSH)"
+      },
+      "widgets_values": [
+        "",
+        "after",
+        "none",
+        ""
+      ]
+    },
+    {
+      "id": 308,
+      "type": "StringFunction|pysssss",
+      "pos": [
+        2027,
+        742
+      ],
+      "size": {
+        "0": 210,
+        "1": 340
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 431,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 429,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 432,
+          "widget": {
+            "name": "text_c"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            408
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringFunction|pysssss"
+      },
+      "widgets_values": [
+        "append",
+        "yes",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 264,
+      "type": "KSampler (Efficient)",
+      "pos": [
+        598,
+        -2236
+      ],
+      "size": {
+        "0": 223.85964965820312,
+        "1": 558
+      },
+      "flags": {},
+      "order": 58,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 296
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 447
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 311
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 302
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 300
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": 306,
+          "slot_index": 5
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 299,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            309
+          ],
+          "shape": 3,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        907585880929345,
+        null,
+        10,
+        3,
+        "euler_ancestral",
+        "ddim_uniform",
+        0.45,
+        "auto",
+        "true"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 282,
+      "type": "Image Remove Background Rembg (mtb)",
+      "pos": [
+        2771.9537869314217,
+        -2073.072683126211
+      ],
+      "size": {
+        "0": 294,
+        "1": 345.523193359375
+      },
+      "flags": {},
+      "order": 68,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 356
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Image (rgba)",
+          "type": "IMAGE",
+          "links": [
+            360
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "Mask",
+          "type": "MASK",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "Image",
+          "type": "IMAGE",
+          "links": [
+            361
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Remove Background Rembg (mtb)"
+      },
+      "widgets_values": [
+        false,
+        240,
+        10,
+        10,
+        false,
+        "#ffffff"
+      ]
+    },
+    {
+      "id": 276,
+      "type": "KSampler (Efficient)",
+      "pos": [
+        2347,
+        -1184
+      ],
+      "size": {
+        "0": 249.02622985839844,
+        "1": 558
+      },
+      "flags": {},
+      "order": 55,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 337
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 333
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 334
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 336
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 335
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": 343,
+          "slot_index": 5
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 338,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 362,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 378,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            341
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            340
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        339840791333001,
+        null,
+        10,
+        7,
+        "dpmpp_2m_sde",
+        "exponential",
+        0.45,
+        "auto",
+        "true"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 295,
+      "type": "PrimitiveNode",
+      "pos": [
+        2966,
+        -1310
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            378,
+            379,
+            380
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "Primitive - Steps Det-Ups",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        10,
+        "fixed"
+      ]
+    },
+    {
+      "id": 131,
+      "type": "XY Input: Sampler/Scheduler",
+      "pos": [
+        545.8948376953126,
+        1013.7789553320313
+      ],
+      "size": {
+        "0": 315,
+        "1": 154
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            26
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Sampler/Scheduler"
+      },
+      "widgets_values": [
+        "sampler",
+        3,
+        "dpmpp_2s_ancestral",
+        "None",
+        "dpmpp_2m_sde",
+        "None",
+        "dpmpp_3m_sde",
+        "None",
+        "euler_ancestral",
+        "None",
+        "heunpp2",
+        "None",
+        "dpm_2_ancestral",
+        "None",
+        "lms",
+        "None",
+        "dpm_fast",
+        "None",
+        "dpm_adaptive",
+        "None",
+        "dpmpp_2s_ancestral",
+        "None",
+        "dpmpp_sde",
+        "None",
+        "dpmpp_2m_sde",
+        "None",
+        "dpmpp_3m_sde",
+        "None",
+        "ddpm",
+        "None",
+        "lcm",
+        "None",
+        "ddim",
+        "None",
+        "uni_pc",
+        "None",
+        "uni_pc_bh2",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None"
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 132,
+      "type": "XY Input: Sampler/Scheduler",
+      "pos": [
+        544.8948376953126,
+        799.7789553320313
+      ],
+      "size": {
+        "0": 315,
+        "1": 154
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Sampler/Scheduler"
+      },
+      "widgets_values": [
+        "scheduler",
+        3,
+        "None",
+        "karras",
+        "None",
+        "normal",
+        "None",
+        "exponential",
+        "None",
+        "normal",
+        "None",
+        "simple",
+        "None",
+        "ddim_uniform",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None",
+        "None"
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 133,
+      "type": "XY Plot",
+      "pos": [
+        921.0373574721689,
+        782.8145852762453
+      ],
+      "size": {
+        "0": 315,
+        "1": 194
+      },
+      "flags": {},
+      "order": 35,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "dependencies",
+          "type": "DEPENDENCIES",
+          "link": null
+        },
+        {
+          "name": "X",
+          "type": "XY",
+          "link": 27,
+          "slot_index": 1
+        },
+        {
+          "name": "Y",
+          "type": "XY",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Plot"
+      },
+      "widgets_values": [
+        0,
+        "False",
+        "Horizontal",
+        "True",
+        "Plot"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 119,
+      "type": "XY Plot",
+      "pos": [
+        1671,
+        808.1151170004049
+      ],
+      "size": {
+        "0": 315,
+        "1": 194
+      },
+      "flags": {},
+      "order": 36,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "dependencies",
+          "type": "DEPENDENCIES",
+          "link": null
+        },
+        {
+          "name": "X",
+          "type": "XY",
+          "link": 330,
+          "slot_index": 1
+        },
+        {
+          "name": "Y",
+          "type": "XY",
+          "link": 329
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [
+            463
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Plot"
+      },
+      "widgets_values": [
+        0,
+        "False",
+        "Horizontal",
+        "True",
+        "Plot"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 121,
+      "type": "XY Input: CFG Scale",
+      "pos": [
+        1324,
+        974
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            330
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: CFG Scale"
+      },
+      "widgets_values": [
+        3,
+        2,
+        3
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 120,
+      "type": "XY Input: Steps",
+      "pos": [
+        1314,
+        797
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "X or Y",
+          "type": "XY",
+          "links": [
+            329
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "XY Input: Steps"
+      },
+      "widgets_values": [
+        "steps",
+        2,
+        7,
+        15,
+        0,
+        10,
+        10,
+        20,
+        10,
+        20
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1
+    },
+    {
+      "id": 255,
+      "type": "SaveImage",
+      "pos": [
+        1370,
+        -1151
+      ],
+      "size": {
+        "0": 908.7938232421875,
+        "1": 837.7300415039062
+      },
+      "flags": {},
+      "order": 69,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 280
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "##MKlan\\Mklan18.1Art\\MklanIterativeLatentUpsc"
+      ]
+    },
+    {
+      "id": 248,
+      "type": "SaveImage",
+      "pos": [
+        3276,
+        -1039
+      ],
+      "size": {
+        "0": 1404.7119140625,
+        "1": 1805.95947265625
+      },
+      "flags": {},
+      "order": 71,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 264
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "##MKlan\\Mklan18.1Art\\MKlanlLatimg_Upscx2"
+      ]
+    },
+    {
+      "id": 247,
+      "type": "CR Upscale Image",
+      "pos": [
+        3258.500628411904,
+        -1301.9747511415053
+      ],
+      "size": {
+        "0": 501.7803649902344,
+        "1": 222
+      },
+      "flags": {},
+      "order": 65,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 263
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            264
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR Upscale Image"
+      },
+      "widgets_values": [
+        "4x_Valar_v1.pth",
+        "rescale",
+        4,
+        832,
+        "lanczos",
+        "true",
+        8
+      ]
+    },
+    {
+      "id": 224,
+      "type": "LoadImage",
+      "pos": [
+        212,
+        -152
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 21,
+      "mode": 4,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            217
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Img2Img_00015_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 331,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2374,
+        -572
+      ],
+      "size": {
+        "0": 210,
+        "1": 206.82070922851562
+      },
+      "flags": {},
+      "order": 41,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 455,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "Logo, Vector art, comic, digital art, Text:\"ZIGGART\", showing the essence of weird mutant, creature, colorful, surprised face, cute, funny, crazy, mystic, steampunk, cyberpunk, graphic illustration, comic art, graphic novel art, vibrant, highly detailed, (playful elements), masterpiece "
+        ],
+        "Logo, Vector art, comic, digital art, Text:\"ZIGGART\", showing the essence of weird mutant, creature, colorful, surprised face, cute, funny, crazy, mystic, steampunk, cyberpunk, graphic illustration, comic art, graphic novel art, vibrant, highly detailed, (playful elements), masterpiece ",
+        "Logo, Vector art, comic, digital art, Text:\"ZIGGART\", showing the essence of weird mutant, creature, colorful, surprised face, cute, funny, crazy, mystic, steampunk, cyberpunk, graphic illustration, comic art, graphic novel art, vibrant, highly detailed, (playful elements), masterpiece ",
+        "Logo, Vector art, comic, digital art, Text:\"ZIGGART\", showing the essence of weird mutant, creature, colorful, surprised face, cute, funny, crazy, mystic, steampunk, cyberpunk, graphic illustration, comic art, graphic novel art, vibrant, highly detailed, (playful elements), masterpiece "
+      ]
+    },
+    {
+      "id": 326,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3223,
+        862
+      ],
+      "size": {
+        "0": 210,
+        "1": 276
+      },
+      "flags": {},
+      "order": 40,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 439,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "shape": 6,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "oil painting Luis Royo style of Princess Peach intricated details"
+        ],
+        "oil painting Luis Royo style of Princess Peach intricated details",
+        "oil painting Luis Royo style of Princess Peach intricated details",
+        "oil painting Luis Royo style of Princess Peach intricated details",
+        "oil painting Luis Royo style of Princess Peach intricated details",
+        "oil painting Luis Royo style of Princess Peach intricated details",
+        "oil painting Luis Royo style of Princess Peach intricated details",
+        "logo, vector, black, red, green, (TEXT: \"ZIGGART\"), mystic fantasy cyberpunk steampunk cat, detailed."
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 167,
+      "type": "KSampler (Efficient)",
+      "pos": [
+        1952,
+        85
+      ],
+      "size": {
+        "0": 351.940185546875,
+        "1": 603.2711181640625
+      },
+      "flags": {},
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 443
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 452
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 84
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 220
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 375
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": 463,
+          "slot_index": 5
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 107,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 324,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 377,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            249,
+            274,
+            282,
+            296,
+            337,
+            350
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            259,
+            276,
+            333,
+            444,
+            445,
+            446,
+            447
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            258,
+            277,
+            284,
+            334
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            96,
+            336
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            250,
+            275,
+            285,
+            300,
+            335,
+            351
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            88
+          ],
+          "shape": 3,
+          "slot_index": 5
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler (Efficient)"
+      },
+      "widgets_values": [
+        427499209313860,
+        null,
+        15,
+        2,
+        "dpmpp_2s_ancestral",
+        "karras",
+        1,
+        "auto",
+        "true"
+      ],
+      "color": "#332233",
+      "bgcolor": "#553355",
+      "shape": 1
+    },
+    {
+      "id": 111,
+      "type": "HighRes-Fix Script",
+      "pos": [
+        1955,
+        -213
+      ],
+      "size": [
+        345.6796875,
+        250
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": null,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SCRIPT",
+          "type": "SCRIPT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HighRes-Fix Script"
+      },
+      "widgets_values": [
+        "latent",
+        "(use same)",
+        "nearest-exact",
+        "4x_fatal_Anime_500000_G.pth",
+        1.5,
+        true,
+        79766617705287,
+        null,
+        12,
+        0.4,
+        1,
+        false,
+        "t2i\\coadapter-canny-sd15v1.pth",
+        1,
+        "CannyEdgePreprocessor",
+        true
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 147,
+      "type": "CR SDXL Aspect Ratio",
+      "pos": [
+        1639,
+        -56
+      ],
+      "size": {
+        "0": 265.9376220703125,
+        "1": 278
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "upscale_factor",
+          "type": "FLOAT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "empty_latent",
+          "type": "LATENT",
+          "links": [
+            220,
+            369
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CR SDXL Aspect Ratio"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        "5:8 portrait 832x1216",
+        "Off",
+        1,
+        1
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 114,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        1643,
+        264
+      ],
+      "size": {
+        "0": 255.17295837402344,
+        "1": 405.5623779296875
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "link": 404,
+          "widget": {
+            "name": "text_positive"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            431
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [
+            59
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "snake __detail__ __detail__",
+        "",
+        "base",
+        false,
+        false,
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 176,
+      "type": "SeedSelector",
+      "pos": [
+        563,
+        70
+      ],
+      "size": {
+        "0": 370.61859130859375,
+        "1": 130
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "links": [
+            107,
+            299,
+            338,
+            434
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SeedSelector"
+      },
+      "widgets_values": [
+        true,
+        832736303541702,
+        "randomize",
+        0
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 327,
+      "type": "SelfAttentionGuidance",
+      "pos": [
+        944,
+        112
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 442
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            443
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SelfAttentionGuidance"
+      },
+      "widgets_values": [
+        0.5,
+        2
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 294,
+      "type": "PrimitiveNode",
+      "pos": [
+        1166,
+        112
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            377,
+            435
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "Primitive - Steps",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        15,
+        "fixed"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 329,
+      "type": "Prompt Generator",
+      "pos": [
+        119,
+        243
+      ],
+      "size": {
+        "0": 400,
+        "1": 672
+      },
+      "flags": {},
+      "order": 45,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 448
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gen_prompt",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "gen_prompt_str",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Prompt Generator"
+      },
+      "widgets_values": [
+        "female_positive_generator_v2",
+        "enable",
+        "((masterpiece, best quality, ultra detailed)), illustration, digital art, 1girl, solo, ((stunningly beautiful))",
+        834804700299095,
+        "randomize",
+        "disable",
+        "enable",
+        1,
+        1,
+        20,
+        50,
+        "enable",
+        "disable",
+        1,
+        1,
+        0,
+        1,
+        50,
+        1,
+        1,
+        0,
+        "disable",
+        "disable",
+        0,
+        "exact_keyword"
+      ]
+    },
+    {
+      "id": 175,
+      "type": "SaveImage",
+      "pos": [
+        2625,
+        -1183
+      ],
+      "size": {
+        "0": 599.2545166015625,
+        "1": 872.1439208984375
+      },
+      "flags": {},
+      "order": 63,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 104
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "##MKlan\\Mklan19.1Art\\MKlanLat"
+      ]
+    },
+    {
+      "id": 287,
+      "type": "Image Save",
+      "pos": [
+        3094.9537869314217,
+        -2080.072683126211
+      ],
+      "size": {
+        "0": 309.4388427734375,
+        "1": 557.9999389648438
+      },
+      "flags": {},
+      "order": 75,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 361
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Save"
+      },
+      "widgets_values": [
+        "##Oubelin\\##NOBCKGRD",
+        "whiteBg",
+        "_",
+        4,
+        "false",
+        "png",
+        100,
+        "false",
+        "false",
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 286,
+      "type": "Image Save",
+      "pos": [
+        3434.9537869314217,
+        -2072.072683126211
+      ],
+      "size": {
+        "0": 315,
+        "1": 557.9999389648438
+      },
+      "flags": {},
+      "order": 74,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 360
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Save"
+      },
+      "widgets_values": [
+        "##Oubelin\\##NOBCKGRD",
+        "NoBg",
+        "_",
+        4,
+        "false",
+        "png",
+        100,
+        "false",
+        "false",
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 246,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": {
+        "0": -201,
+        "1": -374,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 383.8475646972656,
+        "1": 562
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 166,
+      "type": "SaveImage",
+      "pos": [
+        2341,
+        -195
+      ],
+      "size": {
+        "0": 864.2291259765625,
+        "1": 972.1826782226562
+      },
+      "flags": {},
+      "order": 56,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 88
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "##MKlan\\Mklan19.0\\mklan_"
+      ]
+    },
+    {
+      "id": 293,
+      "type": "CheckpointLoader|pysssss",
+      "pos": [
+        558,
+        -207
+      ],
+      "size": {
+        "0": 604.6940307617188,
+        "1": 122
+      },
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            374
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            373
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            375,
+            376
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoader|pysssss"
+      },
+      "widgets_values": [
+        {
+          "content": "Mklan\\Mklan19.0.safetensors",
+          "image": null
+        },
+        "[none]"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 113,
+      "type": "LoRA Stacker",
+      "pos": [
+        1180,
+        -190
+      ],
+      "size": {
+        "0": 446.9133605957031,
+        "1": 226
+      },
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LORA_STACK",
+          "type": "LORA_STACK",
+          "links": [
+            56
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoRA Stacker"
+      },
+      "widgets_values": [
+        "simple",
+        3,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        0.9,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        0.5,
+        1,
+        2,
+        "None",
+        0.8,
+        1,
+        1,
+        "None",
+        0.4,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1
+      ],
+      "color": "#222233",
+      "bgcolor": "#333355",
+      "shape": 1
+    },
+    {
+      "id": 184,
+      "type": "ImpactWildcardProcessor",
+      "pos": [
+        555,
+        231
+      ],
+      "size": {
+        "0": 1073.7396240234375,
+        "1": 453.2650146484375
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            404,
+            439,
+            455
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactWildcardProcessor"
+      },
+      "widgets_values": [
+        "beautiful lady, (freckles), big smile, ruby eyes, long curly hair, dark makeup, hyperdetailed photography, soft light, head and shoulders portrait, cover",
+        "beautiful lady, (freckles), big smile, ruby eyes, long curly hair, dark makeup, hyperdetailed photography, soft light, head and shoulders portrait, cover",
+        false,
+        635251478780010,
+        "randomize",
+        "Select the Wildcard to add to the text"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 274,
+      "type": "Cfg Literal",
+      "pos": [
+        1389,
+        114
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            323,
+            362,
+            433
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Cfg Literal"
+      },
+      "widgets_values": [
+        2
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      26,
+      131,
+      0,
+      133,
+      2,
+      "XY"
+    ],
+    [
+      27,
+      132,
+      0,
+      133,
+      1,
+      "XY"
+    ],
+    [
+      56,
+      113,
+      0,
+      145,
+      2,
+      "LORA_STACK"
+    ],
+    [
+      59,
+      114,
+      1,
+      149,
+      1,
+      "STRING"
+    ],
+    [
+      68,
+      145,
+      1,
+      148,
+      0,
+      "CLIP"
+    ],
+    [
+      69,
+      145,
+      1,
+      149,
+      0,
+      "CLIP"
+    ],
+    [
+      84,
+      149,
+      0,
+      167,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      88,
+      167,
+      5,
+      166,
+      0,
+      "IMAGE"
+    ],
+    [
+      96,
+      167,
+      3,
+      170,
+      0,
+      "LATENT"
+    ],
+    [
+      104,
+      174,
+      0,
+      175,
+      0,
+      "IMAGE"
+    ],
+    [
+      107,
+      176,
+      0,
+      167,
+      6,
+      "INT"
+    ],
+    [
+      167,
+      149,
+      0,
+      198,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      169,
+      145,
+      1,
+      198,
+      2,
+      "CLIP"
+    ],
+    [
+      172,
+      198,
+      0,
+      199,
+      0,
+      "IMAGE"
+    ],
+    [
+      217,
+      224,
+      0,
+      225,
+      0,
+      "IMAGE"
+    ],
+    [
+      220,
+      147,
+      4,
+      167,
+      3,
+      "LATENT"
+    ],
+    [
+      225,
+      227,
+      0,
+      198,
+      7,
+      "SAM_MODEL"
+    ],
+    [
+      226,
+      228,
+      1,
+      198,
+      8,
+      "SEGM_DETECTOR"
+    ],
+    [
+      227,
+      229,
+      0,
+      198,
+      6,
+      "BBOX_DETECTOR"
+    ],
+    [
+      245,
+      241,
+      1,
+      240,
+      0,
+      "SEGM_DETECTOR"
+    ],
+    [
+      246,
+      174,
+      0,
+      240,
+      1,
+      "IMAGE"
+    ],
+    [
+      247,
+      240,
+      0,
+      242,
+      1,
+      "SEGS"
+    ],
+    [
+      248,
+      174,
+      0,
+      242,
+      0,
+      "IMAGE"
+    ],
+    [
+      249,
+      167,
+      0,
+      242,
+      2,
+      "MODEL"
+    ],
+    [
+      250,
+      167,
+      4,
+      242,
+      4,
+      "VAE"
+    ],
+    [
+      251,
+      145,
+      1,
+      242,
+      3,
+      "CLIP"
+    ],
+    [
+      254,
+      242,
+      0,
+      198,
+      0,
+      "IMAGE"
+    ],
+    [
+      255,
+      242,
+      0,
+      243,
+      0,
+      "IMAGE"
+    ],
+    [
+      256,
+      198,
+      0,
+      244,
+      0,
+      "IMAGE"
+    ],
+    [
+      257,
+      244,
+      0,
+      245,
+      0,
+      "IMAGE"
+    ],
+    [
+      258,
+      167,
+      2,
+      242,
+      6,
+      "CONDITIONING"
+    ],
+    [
+      259,
+      167,
+      1,
+      242,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      263,
+      174,
+      0,
+      247,
+      0,
+      "IMAGE"
+    ],
+    [
+      264,
+      247,
+      0,
+      248,
+      0,
+      "IMAGE"
+    ],
+    [
+      274,
+      167,
+      0,
+      253,
+      0,
+      "MODEL"
+    ],
+    [
+      275,
+      167,
+      4,
+      253,
+      1,
+      "VAE"
+    ],
+    [
+      276,
+      167,
+      1,
+      253,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      277,
+      167,
+      2,
+      253,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      278,
+      252,
+      0,
+      254,
+      0,
+      "LATENT"
+    ],
+    [
+      279,
+      252,
+      1,
+      254,
+      1,
+      "VAE"
+    ],
+    [
+      280,
+      254,
+      0,
+      255,
+      0,
+      "IMAGE"
+    ],
+    [
+      282,
+      167,
+      0,
+      257,
+      1,
+      "MODEL"
+    ],
+    [
+      284,
+      167,
+      2,
+      257,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      285,
+      167,
+      4,
+      257,
+      4,
+      "VAE"
+    ],
+    [
+      286,
+      174,
+      0,
+      257,
+      0,
+      "IMAGE"
+    ],
+    [
+      290,
+      261,
+      0,
+      257,
+      5,
+      "UPSCALE_MODEL"
+    ],
+    [
+      291,
+      257,
+      0,
+      262,
+      0,
+      "IMAGE"
+    ],
+    [
+      292,
+      253,
+      0,
+      252,
+      1,
+      "UPSCALER"
+    ],
+    [
+      293,
+      263,
+      0,
+      253,
+      4,
+      "UPSCALE_MODEL"
+    ],
+    [
+      296,
+      167,
+      0,
+      264,
+      0,
+      "MODEL"
+    ],
+    [
+      299,
+      176,
+      0,
+      264,
+      6,
+      "INT"
+    ],
+    [
+      300,
+      167,
+      4,
+      264,
+      4,
+      "VAE"
+    ],
+    [
+      302,
+      170,
+      0,
+      264,
+      3,
+      "LATENT"
+    ],
+    [
+      305,
+      170,
+      0,
+      252,
+      0,
+      "LATENT"
+    ],
+    [
+      306,
+      265,
+      0,
+      264,
+      5,
+      "SCRIPT"
+    ],
+    [
+      307,
+      267,
+      0,
+      265,
+      1,
+      "XY"
+    ],
+    [
+      308,
+      266,
+      0,
+      265,
+      2,
+      "XY"
+    ],
+    [
+      309,
+      264,
+      5,
+      268,
+      0,
+      "IMAGE"
+    ],
+    [
+      311,
+      149,
+      0,
+      264,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      318,
+      270,
+      0,
+      271,
+      0,
+      "INSTRUCTIR_MODEL"
+    ],
+    [
+      319,
+      174,
+      0,
+      271,
+      1,
+      "IMAGE"
+    ],
+    [
+      320,
+      271,
+      0,
+      272,
+      0,
+      "IMAGE"
+    ],
+    [
+      323,
+      274,
+      0,
+      275,
+      0,
+      "*"
+    ],
+    [
+      324,
+      275,
+      0,
+      167,
+      7,
+      "FLOAT"
+    ],
+    [
+      326,
+      275,
+      0,
+      257,
+      6,
+      "FLOAT"
+    ],
+    [
+      327,
+      275,
+      0,
+      242,
+      8,
+      "FLOAT"
+    ],
+    [
+      328,
+      275,
+      0,
+      198,
+      10,
+      "FLOAT"
+    ],
+    [
+      329,
+      120,
+      0,
+      119,
+      2,
+      "XY"
+    ],
+    [
+      330,
+      121,
+      0,
+      119,
+      1,
+      "XY"
+    ],
+    [
+      333,
+      167,
+      1,
+      276,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      334,
+      167,
+      2,
+      276,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      335,
+      167,
+      4,
+      276,
+      4,
+      "VAE"
+    ],
+    [
+      336,
+      167,
+      3,
+      276,
+      3,
+      "LATENT"
+    ],
+    [
+      337,
+      167,
+      0,
+      276,
+      0,
+      "MODEL"
+    ],
+    [
+      338,
+      176,
+      0,
+      276,
+      6,
+      "INT"
+    ],
+    [
+      340,
+      276,
+      4,
+      174,
+      1,
+      "VAE"
+    ],
+    [
+      341,
+      276,
+      3,
+      174,
+      0,
+      "LATENT"
+    ],
+    [
+      343,
+      277,
+      0,
+      276,
+      5,
+      "SCRIPT"
+    ],
+    [
+      344,
+      278,
+      0,
+      277,
+      1,
+      "XY"
+    ],
+    [
+      350,
+      167,
+      0,
+      198,
+      1,
+      "MODEL"
+    ],
+    [
+      351,
+      167,
+      4,
+      198,
+      3,
+      "VAE"
+    ],
+    [
+      355,
+      280,
+      3,
+      281,
+      1,
+      "STRING"
+    ],
+    [
+      356,
+      174,
+      0,
+      282,
+      0,
+      "IMAGE"
+    ],
+    [
+      360,
+      282,
+      0,
+      286,
+      0,
+      "IMAGE"
+    ],
+    [
+      361,
+      282,
+      2,
+      287,
+      0,
+      "IMAGE"
+    ],
+    [
+      362,
+      274,
+      0,
+      276,
+      7,
+      "FLOAT"
+    ],
+    [
+      367,
+      280,
+      0,
+      292,
+      0,
+      "MODEL"
+    ],
+    [
+      368,
+      280,
+      2,
+      292,
+      4,
+      "VAE"
+    ],
+    [
+      369,
+      147,
+      4,
+      292,
+      3,
+      "LATENT"
+    ],
+    [
+      371,
+      149,
+      0,
+      292,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      372,
+      292,
+      5,
+      281,
+      0,
+      "IMAGE"
+    ],
+    [
+      373,
+      293,
+      1,
+      145,
+      1,
+      "CLIP"
+    ],
+    [
+      374,
+      293,
+      0,
+      145,
+      0,
+      "MODEL"
+    ],
+    [
+      375,
+      293,
+      2,
+      167,
+      4,
+      "VAE"
+    ],
+    [
+      376,
+      293,
+      2,
+      225,
+      1,
+      "VAE"
+    ],
+    [
+      377,
+      294,
+      0,
+      167,
+      8,
+      "INT"
+    ],
+    [
+      378,
+      295,
+      0,
+      276,
+      8,
+      "INT"
+    ],
+    [
+      379,
+      295,
+      0,
+      242,
+      9,
+      "INT"
+    ],
+    [
+      380,
+      295,
+      0,
+      198,
+      11,
+      "INT"
+    ],
+    [
+      398,
+      306,
+      0,
+      302,
+      0,
+      "IMAGE"
+    ],
+    [
+      399,
+      303,
+      0,
+      302,
+      1,
+      "CUSTOM"
+    ],
+    [
+      400,
+      307,
+      0,
+      302,
+      2,
+      "STRING"
+    ],
+    [
+      401,
+      304,
+      0,
+      303,
+      0,
+      "CUSTOM"
+    ],
+    [
+      402,
+      302,
+      0,
+      305,
+      0,
+      "STRING"
+    ],
+    [
+      404,
+      184,
+      0,
+      114,
+      0,
+      "STRING"
+    ],
+    [
+      408,
+      308,
+      0,
+      148,
+      1,
+      "STRING"
+    ],
+    [
+      416,
+      305,
+      0,
+      321,
+      0,
+      "STRING"
+    ],
+    [
+      427,
+      324,
+      0,
+      280,
+      0,
+      "COMBO"
+    ],
+    [
+      429,
+      321,
+      0,
+      308,
+      1,
+      "STRING"
+    ],
+    [
+      431,
+      114,
+      0,
+      308,
+      0,
+      "STRING"
+    ],
+    [
+      432,
+      325,
+      0,
+      308,
+      2,
+      "STRING"
+    ],
+    [
+      433,
+      274,
+      0,
+      292,
+      7,
+      "FLOAT"
+    ],
+    [
+      434,
+      176,
+      0,
+      292,
+      6,
+      "INT"
+    ],
+    [
+      435,
+      294,
+      0,
+      292,
+      8,
+      "INT"
+    ],
+    [
+      439,
+      184,
+      0,
+      326,
+      0,
+      "STRING"
+    ],
+    [
+      442,
+      145,
+      0,
+      327,
+      0,
+      "MODEL"
+    ],
+    [
+      443,
+      327,
+      0,
+      167,
+      0,
+      "MODEL"
+    ],
+    [
+      444,
+      167,
+      1,
+      198,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      445,
+      167,
+      1,
+      292,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      446,
+      167,
+      1,
+      257,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      447,
+      167,
+      1,
+      264,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      448,
+      145,
+      1,
+      329,
+      0,
+      "CLIP"
+    ],
+    [
+      452,
+      148,
+      0,
+      167,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      455,
+      184,
+      0,
+      331,
+      0,
+      "STRING"
+    ],
+    [
+      463,
+      119,
+      0,
+      167,
+      5,
+      "SCRIPT"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "XY Steps/Cfg",
+      "bounding": [
+        1304,
+        712,
+        689,
+        476
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "XY Sampler/Scheduler",
+      "bounding": [
+        533,
+        711,
+        758,
+        476
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Setup&Prompt",
+      "bounding": [
+        548,
+        -276,
+        1370,
+        969
+      ],
+      "color": "#88A",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Sampling",
+      "bounding": [
+        1946,
+        -281,
+        367,
+        977
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Latent Upscal",
+      "bounding": [
+        2338,
+        -1387,
+        892,
+        1101
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "SAVE BASE",
+      "bounding": [
+        2323,
+        -273,
+        894,
+        1064
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Face Detailer upscaled",
+      "bounding": [
+        6015,
+        -1331,
+        1179,
+        1286
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Img2Img",
+      "bounding": [
+        211,
+        -278,
+        325,
+        464
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Body Detail",
+      "bounding": [
+        4778,
+        -1334,
+        1184,
+        1278
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "IMG FInal Upscale",
+      "bounding": [
+        4811,
+        26,
+        2077,
+        1813
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "upscale nodetailer",
+      "bounding": [
+        3241,
+        -1384,
+        1465,
+        2184
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "IMG_detailbody+faceUpscx2",
+      "bounding": [
+        4747,
+        -1376,
+        2478,
+        3278
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Iterative Upscale",
+      "bounding": [
+        1086,
+        -1402,
+        1216,
+        1102
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Ultimate SD Upscale",
+      "bounding": [
+        212,
+        -1411,
+        866,
+        1111
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Latent Upscale smp/sch test",
+      "bounding": [
+        218,
+        -2367,
+        1587,
+        929
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "InstructIR",
+      "bounding": [
+        3782,
+        -2467,
+        701,
+        1061
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Denoise Test",
+      "bounding": [
+        1919,
+        -1751,
+        782,
+        335
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "CheckPointSave",
+      "bounding": [
+        1192,
+        1202,
+        802,
+        830
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Black&No Background",
+      "bounding": [
+        2762,
+        -2151,
+        994,
+        742
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "IMG to Prompt",
+      "bounding": [
+        2007,
+        803,
+        1192,
+        614
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "Pony Prompt",
+      "bounding": [
+        -162,
+        -592,
+        362,
+        158
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
