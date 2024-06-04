@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# check if zsh is installed
+if ! dpkg -l | grep -q zsh; then
+    echo "Zsh is not installed. Please install it first."
+    exit 1
+fi
+
 # Function to install Oh My Zsh if not already installed
 install_oh_my_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
