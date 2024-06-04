@@ -1,0 +1,5 @@
+https://github.com/thecooltechguy/ComfyUI-ComfyWorkflows.git
+https://github.com/crystian/ComfyUI-Crystools.git
+https://github.com/11cafe/comfyui-workspace-manager.git
+https://github.com/rgthree/rgthree-comfy.git
+https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git
