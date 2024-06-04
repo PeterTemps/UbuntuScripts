@@ -4,7 +4,7 @@
 apt update
 
 # Install the required packages
-apt install -y mc build-essential aria2 wget curl zsh git \
+apt install mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
     cmake make automake gdb \
     nodejs npm \
@@ -15,10 +15,8 @@ apt install -y mc build-essential aria2 wget curl zsh git \
     vim nano emacs \
     tmux screen \
     htop iotop \
-    docker.io docker-compose \
     virtualbox vagrant \
-    ufw \
-    gpg cryptsetup
+    gpg cryptsetup -y
 
 for package in mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
