@@ -6,11 +6,24 @@ if ! dpkg -l | grep -q zsh; then
     exit 1
 fi
 
+# check if curl is installed
+if ! dpkg -l | grep -q curl; then
+    echo "curl is not installed. Please install it first."
+    exit 1
+fi
+
+# check if git is installed
+if ! dpkg -l | grep -q git; then
+    echo "git is not installed. Please install it first."
+    exit 1
+fi
+
 # Function to install Oh My Zsh if not already installed
 install_oh_my_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "Oh My Zsh not found. Installing..."
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        exit 0
     else
         echo "Oh My Zsh is already installed."
     fi
