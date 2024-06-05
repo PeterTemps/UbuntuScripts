@@ -1,0 +1,445 @@
+{
+  "last_node_id": 14,
+  "last_link_id": 19,
+  "nodes": [
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": [
+        584.8406134101573,
+        -30.23581808066403
+      ],
+      "size": {
+        "0": 307.2804870605469,
+        "1": 301.7631530761719
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 5,
+      "type": "PreviewImage",
+      "pos": [
+        585,
+        636
+      ],
+      "size": [
+        351.9580272949215,
+        287.9379009765621
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        -24.76913173134765,
+        350.2819803933592
+      ],
+      "size": {
+        "0": 466.61175537109375,
+        "1": 551.9967651367188
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "iron_man.jpg",
+        "image"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 2,
+      "type": "CropFace",
+      "pos": [
+        575.2254488281255,
+        -176.13325039062505
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            18
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CropFace"
+      },
+      "widgets_values": [
+        "retinaface_resnet50"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 14,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        589,
+        326
+      ],
+      "size": {
+        "0": 315,
+        "1": 246
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16,
+            19
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "codeformer.pth",
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        -21.769131731347652,
+        -170.7180196066406
+      ],
+      "size": {
+        "0": 448.5328063964844,
+        "1": 420.5688171386719
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "tom.jpg",
+        "image"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 7,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1048,
+        -189
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            5
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 11,
+      "type": "SaveImage",
+      "pos": [
+        1046,
+        -79
+      ],
+      "size": [
+        1063.2870119628897,
+        1008.3837656249993
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 6,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1760,
+        -190
+      ],
+      "size": {
+        "0": 318.2618713378906,
+        "1": 46
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 5,
+          "slot_index": 0
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 19,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "color": "#233",
+      "bgcolor": "#355"
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      7,
+      0,
+      6,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      11,
+      6,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      2,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      14,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      1,
+      0,
+      14,
+      1,
+      "IMAGE"
+    ],
+    [
+      18,
+      2,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      14,
+      0,
+      6,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Load Images",
+      "bounding": [
+        -90,
+        -278,
+        601,
+        1225
+      ],
+      "color": "#3f789e"
+    },
+    {
+      "title": "Crop and Swap Face",
+      "bounding": [
+        530,
+        -272,
+        453,
+        1221
+      ],
+      "color": "#3f789e"
+    },
+    {
+      "title": "Upscale and Save",
+      "bounding": [
+        1012,
+        -273,
+        1136,
+        1221
+      ],
+      "color": "#3f789e"
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
