@@ -16,6 +16,7 @@ apt install mc build-essential aria2 wget curl zsh git \
     tmux screen \
     htop iotop \
     virtualbox vagrant \
+    git-lfs \
     gpg cryptsetup -y
 
 for package in mc build-essential aria2 wget curl zsh git \
@@ -31,7 +32,7 @@ for package in mc build-essential aria2 wget curl zsh git \
     htop iotop \
     docker.io docker-compose \
     virtualbox vagrant \
-    ufw \
+    git-lfs \
     gpg cryptsetup; 
 do
     if dpkg -l | grep -q $package; then
