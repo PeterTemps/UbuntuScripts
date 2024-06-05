@@ -1,0 +1,16 @@
+https://civitai.com/api/download/models/130072?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/536812?type=Model&format=SafeTensor&size=full&fp=fp16
+https://civitai.com/api/download/models/537505?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/521626?type=Model&format=SafeTensor&size=full&fp=fp32
+https://civitai.com/api/download/models/521626?type=VAE&format=SafeTensor
+https://civitai.com/api/download/models/479715?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/445348?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/495292?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/538250?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/433727?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/90072?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/448283?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/143906?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/357609?type=Model&format=SafeTensor&size=full&fp=fp16
+https://civitai.com/api/download/models/429454?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/132760?type=Model&format=SafeTensor&size=pruned&fp=fp16
