@@ -1,5 +1,8 @@
 #!/bin/bash
 
+gsettings set org.gnome.desktop.interface enable-animations false
+sudo sysctl -w net.core.wmem_max=8388608
+
 # Restart XRDP service
 echo "Restarting XRDP service..."
 sudo systemctl restart xrdp
