@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt install zsh-autosuggestions zsh-syntax-highlighting 
+
 # check if zsh is installed
 if ! dpkg -l | grep -q zsh; then
     echo "Zsh is not installed. Please install it first."
@@ -80,9 +82,24 @@ else
     echo "zsh-interactive-cd is already installed."
 fi
 
+# clone https://github.com/zdharma-continuum/fast-syntax-highlighting
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting" ]; then
+    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+else
+    echo "fast-syntax-highlighting is already installed."
+fi
+
+
+# Clone https://github.com/marlonrichert/zsh-autocomplete plugin
+if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete" ]; then
+    git clone https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete
+else
+    echo "zsh-autocomplete is already installed."
+fi
+
 # Add additional plugins to .zshrc if not already present
 # plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions")
-plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions" "zsh-interactive-cd")
+plugins_to_add=("git" "zsh-z" "fzf" "colored-man-pages" "sudo" "history" "zsh-syntax-highlighting" "zsh-autosuggestions" "zsh-completions" "zsh-interactive-cd" "fast-syntax-highlighting" "zsh-autocomplete")
 
 for plugin in "${plugins_to_add[@]}"; do
     if ! grep -q "$plugin" ~/.zshrc; then
