@@ -14,3 +14,5 @@ https://civitai.com/api/download/models/143906?type=Model&format=SafeTensor&size
 https://civitai.com/api/download/models/357609?type=Model&format=SafeTensor&size=full&fp=fp16
 https://civitai.com/api/download/models/429454?type=Model&format=SafeTensor&size=pruned&fp=fp16
 https://civitai.com/api/download/models/132760?type=Model&format=SafeTensor&size=pruned&fp=fp16
+https://civitai.com/api/download/models/490254?type=Model&format=SafeTensor&size=full&fp=fp16
+https://civitai.com/api/download/models/489217?type=Model&format=SafeTensor&size=pruned&fp=fp16
