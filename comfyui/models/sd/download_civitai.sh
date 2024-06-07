@@ -1,8 +1,18 @@
 # using wget or aria2c to download urls from civitai.txt, ask user to select wget or aria2c, check if wget or aria2c is installed, if not, install it, download files using content-disposition to get the filename.
 
-# ask user to select wget or aria2c
-echo "Please select the downloader you want to use: 1. wget 2. aria2c"
-read downloader
+
+
+
+# if no argument passed ask user to select wget or aria2c
+if [ $# -eq 0 ]; then
+    echo "Select downloader:"
+    echo "1. wget"
+    echo "2. aria2c"
+    read -p "Enter your choice: " downloader
+else
+    downloader=$1
+fi
+
 if [ $downloader -eq 1 ]; then
     downloader="wget"
     package="wget"
