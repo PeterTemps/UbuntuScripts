@@ -1,21 +1,21 @@
 #!/bin/bash
 
-sudo apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting curl git
+apt install zsh-autosuggestions zsh-syntax-highlighting 
 
 # check if zsh is installed
-if ! command -v zsh &> /dev/null; then
+if ! dpkg -l | grep -q zsh; then
     echo "Zsh is not installed. Please install it first."
     exit 1
 fi
 
 # check if curl is installed
-if ! command -v curl &> /dev/null; then
+if ! dpkg -l | grep -q curl; then
     echo "curl is not installed. Please install it first."
     exit 1
 fi
 
 # check if git is installed
-if ! command -v git &> /dev/null; then
+if ! dpkg -l | grep -q git; then
     echo "git is not installed. Please install it first."
     exit 1
 fi
@@ -25,6 +25,7 @@ install_oh_my_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         echo "Oh My Zsh not found. Installing..."
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        exit 0
     else
         echo "Oh My Zsh is already installed."
     fi
@@ -34,56 +35,56 @@ install_oh_my_zsh() {
 install_oh_my_zsh
 
 # Set Zsh as the default shell if not already set
-if [ "$SHELL" != "$(command -v zsh)" ]; then
-    chsh -s "$(command -v zsh)"
+if [ "$SHELL" != "$(which zsh)" ]; then
+    chsh -s $(which zsh)
 fi
 
 # Clone syntax highlighting plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 else
     echo "zsh-syntax-highlighting is already installed."
 fi
 
 # Clone autosuggestions plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 else
     echo "zsh-autosuggestions is already installed."
 fi
 
 # Clone completions plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions" ]; then
-    git clone https://github.com/zsh-users/zsh-completions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions"
+    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 else
     echo "zsh-completions is already installed."
 fi
 
 # Clone fzf plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf" ]; then
-    git clone https://github.com/junegunn/fzf.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf"
-    "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf/install" --all
+    git clone https://github.com/junegunn/fzf.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
+    ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf/install --all
 else
     echo "fzf is already installed."
 fi
 
 # Clone zsh-z plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z" ]; then
-    git clone https://github.com/agkozak/zsh-z.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z"
+    git clone https://github.com/agkozak/zsh-z.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
 else
     echo "zsh-z is already installed."
 fi
 
 # Clone zsh-interactive-cd plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive-cd" ]; then
-    git clone https://github.com/changyuheng/zsh-interactive-cd.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive-cd"
+    git clone https://github.com/changyuheng/zsh-interactive-cd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive-cd
 else
     echo "zsh-interactive-cd is already installed."
 fi
 
 # clone https://github.com/zdharma-continuum/fast-syntax-highlighting
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting" ]; then
-    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting"
+    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 else
     echo "fast-syntax-highlighting is already installed."
 fi
@@ -91,7 +92,7 @@ fi
 
 # Clone https://github.com/marlonrichert/zsh-autocomplete plugin
 if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete" ]; then
-    git clone https://github.com/marlonrichert/zsh-autocomplete.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete"
+    git clone https://github.com/marlonrichert/zsh-autocomplete.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autocomplete
 else
     echo "zsh-autocomplete is already installed."
 fi
