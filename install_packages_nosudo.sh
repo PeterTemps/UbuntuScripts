@@ -8,6 +8,7 @@ apt upgrade -y
 apt install mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
     cmake make automake gdb \
+    libtcmalloc-minimal4 \
     git-lfs \
     mc \
     gpg cryptsetup -y
