@@ -2,36 +2,19 @@
 
 # Update the package list
 apt update
+apt upgrade -y
 
 # Install the required packages
 apt install mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
     cmake make automake gdb \
-    nodejs npm \
-    default-jdk \
-    ruby rails \
-    net-tools nmap tcpdump \
-    rsync openssh-server ftp \
-    vim nano emacs \
-    tmux screen \
-    htop iotop \
-    virtualbox vagrant \
     git-lfs \
+    mc \
     gpg cryptsetup -y
 
 for package in mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
     cmake make automake gdb \
-    nodejs npm \
-    default-jdk \
-    ruby rails \
-    net-tools nmap tcpdump \
-    rsync openssh-server ftp \
-    vim nano emacs \
-    tmux screen \
-    htop iotop \
-    docker.io docker-compose \
-    virtualbox vagrant \
     git-lfs \
     gpg cryptsetup; 
 do

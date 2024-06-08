@@ -10,10 +10,10 @@ if [ -z "$VIRTUAL_ENV" ]; then
     else
         # create venv
         echo "Creating a new venv..."
-        python3 -m venv venv && . venv/bin/activate && pip install -U wheel setuptools black
+        python3 -m venv venv && . venv/bin/activate && pip install -U wheel setuptools black pip pipx
     fi
 fi
 
 # Install the Hugging Face Hub
-python -m pip install huggingface_hub
+python -m pip install huggingface_hub hf_transfer
 huggingface-cli login

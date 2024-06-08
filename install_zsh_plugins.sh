@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install zsh-autosuggestions zsh-syntax-highlighting 
+apt install zsh git curl wget zsh-autosuggestions zsh-syntax-highlighting zsh-completions -y
 
 # check if zsh is installed
 if ! dpkg -l | grep -q zsh; then
@@ -20,19 +20,25 @@ if ! dpkg -l | grep -q git; then
     exit 1
 fi
 
-# Function to install Oh My Zsh if not already installed
-install_oh_my_zsh() {
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        echo "Oh My Zsh not found. Installing..."
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-        exit 0
-    else
-        echo "Oh My Zsh is already installed."
-    fi
-}
+# define MY_OH_MY_ZSH variable to store the path to the Oh My Zsh installation directory
+MY_OH_MY_ZSH="$HOME/.oh-my-zsh"
+echo "MY_OH_MY_ZSH: $MY_OH_MY_ZSH"
 
-# Install Oh My Zsh
-install_oh_my_zsh
+#sleep for 4 seconds
+sleep 4
+
+# install Oh My Zsh if not already installed
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Oh My Zsh not found. Installing..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    exit 0
+else
+    echo "Oh My Zsh is already installed."
+fi
+
+
+
 
 # Set Zsh as the default shell if not already set
 if [ "$SHELL" != "$(which zsh)" ]; then
@@ -106,6 +112,9 @@ for plugin in "${plugins_to_add[@]}"; do
         sed -i "/^plugins=(/ s/)/ $plugin)/" ~/.zshrc
     fi
 done
+
+# set user default shell to zsh
+chsh -s $(which zsh)
 
 # Source .zshrc to apply changes
 source ~/.zshrc

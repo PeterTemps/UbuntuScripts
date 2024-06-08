@@ -10,7 +10,7 @@ if [ -z "$VIRTUAL_ENV" ]; then
     else
         # create venv
         echo "Creating a new venv..."
-        python3 -m venv venv && . venv/bin/activate && pip install -U wheel setuptools black
+        python3 -m venv venv && . venv/bin/activate && pip install -U wheel setuptools black pipx pip
     fi
 fi
 
