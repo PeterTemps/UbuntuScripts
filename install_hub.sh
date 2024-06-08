@@ -14,6 +14,8 @@ if [ -z "$VIRTUAL_ENV" ]; then
     fi
 fi
 
+git config --global credential.helper store
+
 # Install the Hugging Face Hub
 python -m pip install huggingface_hub hf_transfer
 huggingface-cli login
