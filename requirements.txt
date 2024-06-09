@@ -16,3 +16,4 @@ ipywidgets
 jupyter
 matplotlib
 tqdm
+facexlib
