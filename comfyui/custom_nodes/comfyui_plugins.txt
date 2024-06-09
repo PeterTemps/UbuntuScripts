@@ -13,3 +13,5 @@ https://github.com/jags111/efficiency-nodes-comfyui.git
 https://github.com/ltdrdata/ComfyUI-Manager.git
 https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 https://github.com/lquesada/ComfyUI-Prompt-Combinator.git
+https://github.com/cubiq/PuLID_ComfyUI.git
+https://github.com/cubiq/ComfyUI_FaceAnalysis.git
