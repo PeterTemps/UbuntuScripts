@@ -15,3 +15,4 @@ https://github.com/cubiq/ComfyUI_IPAdapter_plus.git
 https://github.com/lquesada/ComfyUI-Prompt-Combinator.git
 https://github.com/cubiq/PuLID_ComfyUI.git
 https://github.com/cubiq/ComfyUI_FaceAnalysis.git
+https://github.com/cubiq/ComfyUI_essentials.git
