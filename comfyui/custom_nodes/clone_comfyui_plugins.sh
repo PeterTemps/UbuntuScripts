@@ -11,5 +11,5 @@ fi
 while IFS= read -r line
 do
   # clone the github repo
-  git clone $line 
+  git clone --depth 1 $line 
 done < comfyui_plugins.txt
