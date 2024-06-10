@@ -14,6 +14,8 @@ apt install mc build-essential aria2 wget curl zsh git \
     wormhole \
     gpg cryptsetup -y
 
+wget -qO- cli.runpod.net | bash
+
 for package in mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
     cmake make automake gdb \
