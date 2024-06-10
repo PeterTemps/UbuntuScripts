@@ -11,12 +11,15 @@ apt install mc build-essential aria2 wget curl zsh git \
     libtcmalloc-minimal4 \
     git-lfs \
     mc \
+    wormhole \
     gpg cryptsetup -y
 
 for package in mc build-essential aria2 wget curl zsh git \
     python3 python3-pip python3-venv virtualenv \
     cmake make automake gdb \
     git-lfs \
+    mc \
+    wormhole \
     gpg cryptsetup; 
 do
     if dpkg -l | grep -q $package; then
