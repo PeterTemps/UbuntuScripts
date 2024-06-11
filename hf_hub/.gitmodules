@@ -1,0 +1,3 @@
+[submodule "code/ComfyUI"]
+	path = code/ComfyUI
+	url = https://github.com/comfyanonymous/ComfyUI.git
