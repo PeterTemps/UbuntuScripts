@@ -1,3 +1,4 @@
 models/**
 **/*.safetensors
 venv/**
+hf_hub/**
