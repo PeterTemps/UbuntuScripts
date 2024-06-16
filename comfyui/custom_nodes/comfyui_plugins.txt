@@ -17,3 +17,9 @@ https://github.com/cubiq/PuLID_ComfyUI.git
 https://github.com/cubiq/ComfyUI_FaceAnalysis.git
 https://github.com/cubiq/ComfyUI_essentials.git
 https://github.com/coolzilj/ComfyUI-LJNodes
+https://github.com/Chaoses-Ib/ComfyScript
+https://github.com/Fannovel16/comfyui_controlnet_aux
+https://github.com/storyicon/comfyui_segment_anything
+https://github.com/yolain/ComfyUI-Easy-Use
+https://github.com/cubiq/PuLID_ComfyUI
+https://github.com/abdozmantar/ComfyUI-InstaSwap
