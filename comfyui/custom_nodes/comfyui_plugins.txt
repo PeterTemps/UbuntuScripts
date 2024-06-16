@@ -23,3 +23,4 @@ https://github.com/storyicon/comfyui_segment_anything
 https://github.com/yolain/ComfyUI-Easy-Use
 https://github.com/cubiq/PuLID_ComfyUI
 https://github.com/abdozmantar/ComfyUI-InstaSwap
+https://github.com/adieyal/comfyui-dynamicprompts
