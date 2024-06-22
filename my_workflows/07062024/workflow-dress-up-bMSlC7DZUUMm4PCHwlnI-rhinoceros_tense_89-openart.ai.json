@@ -1,0 +1,1479 @@
+{
+    "last_node_id": 49,
+    "last_link_id": 68,
+    "nodes": [
+        {
+            "id": 4,
+            "type": "MeshGraphormer-DepthMapPreprocessor",
+            "pos": [
+                1694,
+                404
+            ],
+            "size": {
+                "0": 315,
+                "1": 174
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 3,
+                    "label": "image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [],
+                    "shape": 3,
+                    "label": "IMAGE",
+                    "slot_index": 0
+                },
+                {
+                    "name": "INPAINTING_MASK",
+                    "type": "MASK",
+                    "links": [
+                        7
+                    ],
+                    "shape": 3,
+                    "label": "INPAINTING_MASK",
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "MeshGraphormer-DepthMapPreprocessor",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                31,
+                512,
+                "original",
+                5,
+                88
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 15,
+            "type": "ImageToMask",
+            "pos": [
+                2056,
+                -420
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 16,
+                    "label": "image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        17
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageToMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                "red"
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 3,
+            "type": "DensePosePreprocessor",
+            "pos": [
+                1695,
+                633
+            ],
+            "size": {
+                "0": 315,
+                "1": 106
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 2,
+                    "label": "image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        24,
+                        32
+                    ],
+                    "shape": 3,
+                    "label": "IMAGE",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "DensePosePreprocessor",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                "densepose_r50_fpn_dl.torchscript",
+                "Parula (CivitAI)",
+                512
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 13,
+            "type": "PreviewImage",
+            "pos": [
+                3970,
+                40
+            ],
+            "size": {
+                "0": 236.66586303710938,
+                "1": 339.0939025878906
+            },
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 14,
+                    "label": "images"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 27,
+            "type": "PreviewImage",
+            "pos": [
+                3970,
+                430
+            ],
+            "size": {
+                "0": 236.66586303710938,
+                "1": 339.0939025878906
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 32,
+                    "label": "images"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 23,
+            "type": "ImageCrop",
+            "pos": [
+                1318,
+                220
+            ],
+            "size": {
+                "0": 315,
+                "1": 130
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 28
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        2,
+                        3,
+                        8,
+                        12,
+                        15,
+                        29
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageCrop"
+            },
+            "widgets_values": [
+                384,
+                512,
+                0,
+                0
+            ]
+        },
+        {
+            "id": 22,
+            "type": "Image scale to side",
+            "pos": [
+                977,
+                219
+            ],
+            "size": {
+                "0": 315,
+                "1": 130
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 27
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        28
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Image scale to side"
+            },
+            "widgets_values": [
+                512,
+                "Longest",
+                "nearest-exact",
+                "disabled"
+            ]
+        },
+        {
+            "id": 24,
+            "type": "PreviewImage",
+            "pos": [
+                1318,
+                397
+            ],
+            "size": {
+                "0": 210,
+                "1": 246
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 29
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            }
+        },
+        {
+            "id": 30,
+            "type": "SaveImage",
+            "pos": [
+                550,
+                330
+            ],
+            "size": {
+                "0": 409.0503234863281,
+                "1": 581.5155029296875
+            },
+            "flags": {},
+            "order": 24,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 68
+                }
+            ],
+            "title": "dress up",
+            "properties": {},
+            "widgets_values": [
+                "dressup"
+            ]
+        },
+        {
+            "id": 10,
+            "type": "ImageToMask",
+            "pos": [
+                2047,
+                -7
+            ],
+            "size": {
+                "0": 315,
+                "1": 58
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 10,
+                    "label": "image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        9
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ImageToMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                "red"
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 9,
+            "type": "InvertMask",
+            "pos": [
+                2394,
+                1
+            ],
+            "size": {
+                "0": 210,
+                "1": 26
+            },
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 9,
+                    "label": "mask"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        6
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "InvertMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 7,
+            "type": "SubtractMask",
+            "pos": [
+                2644,
+                -1
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask1",
+                    "type": "MASK",
+                    "link": 6,
+                    "label": "mask1"
+                },
+                {
+                    "name": "mask2",
+                    "type": "MASK",
+                    "link": 7,
+                    "label": "mask2"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        19
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "SubtractMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 16,
+            "type": "InvertMask",
+            "pos": [
+                2400,
+                -410
+            ],
+            "size": {
+                "0": 210,
+                "1": 26
+            },
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 17,
+                    "label": "mask"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        18
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "InvertMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 17,
+            "type": "AddMask",
+            "pos": [
+                2949,
+                -310
+            ],
+            "size": {
+                "0": 210,
+                "1": 46
+            },
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask1",
+                    "type": "MASK",
+                    "link": 18,
+                    "label": "mask1"
+                },
+                {
+                    "name": "mask2",
+                    "type": "MASK",
+                    "link": 19,
+                    "label": "mask2"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        11
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "AddMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 11,
+            "type": "GrowMask",
+            "pos": [
+                3198,
+                -310
+            ],
+            "size": {
+                "0": 315,
+                "1": 82
+            },
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 11,
+                    "label": "mask"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": [
+                        4,
+                        13,
+                        21
+                    ],
+                    "shape": 3,
+                    "label": "MASK",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "GrowMask",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                14,
+                true
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 12,
+            "type": "segformer_agnostic",
+            "pos": [
+                3634,
+                -38
+            ],
+            "size": {
+                "0": 216.59999084472656,
+                "1": 46
+            },
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "source",
+                    "type": "IMAGE",
+                    "link": 12,
+                    "label": "source"
+                },
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 13,
+                    "label": "mask"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "mark_image",
+                    "type": "IMAGE",
+                    "links": [
+                        14,
+                        20
+                    ],
+                    "shape": 3,
+                    "label": "mark_image",
+                    "slot_index": 0
+                },
+                {
+                    "name": "open",
+                    "type": "BOOLEAN",
+                    "links": null,
+                    "shape": 3,
+                    "label": "open"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "segformer_agnostic",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 5,
+            "type": "MaskToImage",
+            "pos": [
+                3665,
+                -306
+            ],
+            "size": {
+                "0": 180,
+                "1": 26
+            },
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 4,
+                    "label": "mask"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        31
+                    ],
+                    "shape": 3,
+                    "label": "IMAGE",
+                    "slot_index": 0
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "MaskToImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 26,
+            "type": "PreviewImage",
+            "pos": [
+                3970,
+                -350
+            ],
+            "size": {
+                "0": 236.66586303710938,
+                "1": 339.0939025878906
+            },
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 31,
+                    "label": "images"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 18,
+            "type": "stabel_vition",
+            "pos": [
+                3970,
+                840
+            ],
+            "size": {
+                "0": 315,
+                "1": 330
+            },
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "agn",
+                    "type": "IMAGE",
+                    "link": 20,
+                    "label": "agn"
+                },
+                {
+                    "name": "agn_mask",
+                    "type": "MASK",
+                    "link": 21,
+                    "label": "agn_mask"
+                },
+                {
+                    "name": "cloth",
+                    "type": "IMAGE",
+                    "link": 22,
+                    "label": "cloth",
+                    "slot_index": 2
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 23,
+                    "label": "image"
+                },
+                {
+                    "name": "image_densepose",
+                    "type": "IMAGE",
+                    "link": 24,
+                    "label": "image_densepose"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        38,
+                        63
+                    ],
+                    "shape": 3,
+                    "label": "image",
+                    "slot_index": 0
+                },
+                {
+                    "name": "open",
+                    "type": "BOOLEAN",
+                    "links": null,
+                    "shape": 3,
+                    "label": "open"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "stabel_vition",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                512,
+                384,
+                20,
+                16,
+                0,
+                719179971650689,
+                "fixed",
+                true,
+                false
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 19,
+            "type": "LoadImage",
+            "pos": [
+                329,
+                683
+            ],
+            "size": [
+                210,
+                222.31467633022476
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        22
+                    ],
+                    "shape": 3,
+                    "label": "IMAGE"
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null,
+                    "shape": 3,
+                    "label": "MASK"
+                }
+            ],
+            "title": "dress",
+            "properties": {
+                "Node name for S&R": "LoadImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                "bra.webp",
+                "image"
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 1,
+            "type": "LoadImage",
+            "pos": [
+                330,
+                330
+            ],
+            "size": {
+                "0": 210,
+                "1": 314
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        23,
+                        27,
+                        64
+                    ],
+                    "shape": 3,
+                    "label": "IMAGE",
+                    "slot_index": 0
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null,
+                    "shape": 3,
+                    "label": "MASK"
+                }
+            ],
+            "title": "model",
+            "properties": {
+                "Node name for S&R": "LoadImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                "0 (1).jpg",
+                "image"
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 8,
+            "type": "segformer_clothes",
+            "pos": [
+                1699,
+                -16
+            ],
+            "size": {
+                "0": 315,
+                "1": 366
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 8,
+                    "label": "image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "mark_image",
+                    "type": "IMAGE",
+                    "links": [
+                        10
+                    ],
+                    "shape": 3,
+                    "label": "mark_image",
+                    "slot_index": 0
+                },
+                {
+                    "name": "open",
+                    "type": "BOOLEAN",
+                    "links": null,
+                    "shape": 3,
+                    "label": "open"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "segformer_clothes",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                false,
+                false,
+                false,
+                true,
+                true,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 14,
+            "type": "segformer_clothes",
+            "pos": [
+                1704,
+                -429
+            ],
+            "size": {
+                "0": 315,
+                "1": 366
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 15,
+                    "label": "image"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "mark_image",
+                    "type": "IMAGE",
+                    "links": [
+                        16
+                    ],
+                    "shape": 3,
+                    "label": "mark_image",
+                    "slot_index": 0
+                },
+                {
+                    "name": "open",
+                    "type": "BOOLEAN",
+                    "links": null,
+                    "shape": 3,
+                    "label": "open"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "segformer_clothes",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "widgets_values": [
+                false,
+                false,
+                false,
+                true,
+                true,
+                false,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 31,
+            "type": "PreviewImage",
+            "pos": [
+                4223,
+                41
+            ],
+            "size": {
+                "0": 236.66586303710938,
+                "1": 339.0939025878906
+            },
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 38,
+                    "label": "images"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "PreviewImage",
+                "ttNbgOverride": {
+                    "color": "#223",
+                    "bgcolor": "#335",
+                    "groupcolor": "#88A"
+                }
+            },
+            "color": "#223",
+            "bgcolor": "#335"
+        },
+        {
+            "id": 47,
+            "type": "ReActorFaceSwap",
+            "pos": [
+                2805,
+                969
+            ],
+            "size": {
+                "0": 315,
+                "1": 338
+            },
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "input_image",
+                    "type": "IMAGE",
+                    "link": 63
+                },
+                {
+                    "name": "source_image",
+                    "type": "IMAGE",
+                    "link": 64
+                },
+                {
+                    "name": "face_model",
+                    "type": "FACE_MODEL",
+                    "link": null,
+                    "slot_index": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        68
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "FACE_MODEL",
+                    "type": "FACE_MODEL",
+                    "links": null,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ReActorFaceSwap"
+            },
+            "widgets_values": [
+                true,
+                "inswapper_128.onnx",
+                "YOLOv5n",
+                "GFPGANv1.4.pth",
+                0.9500000000000001,
+                0.71,
+                "no",
+                "no",
+                "1",
+                "1",
+                1
+            ]
+        }
+    ],
+    "links": [
+        [
+            2,
+            23,
+            0,
+            3,
+            0,
+            "IMAGE"
+        ],
+        [
+            3,
+            23,
+            0,
+            4,
+            0,
+            "IMAGE"
+        ],
+        [
+            4,
+            11,
+            0,
+            5,
+            0,
+            "MASK"
+        ],
+        [
+            6,
+            9,
+            0,
+            7,
+            0,
+            "MASK"
+        ],
+        [
+            7,
+            4,
+            1,
+            7,
+            1,
+            "MASK"
+        ],
+        [
+            8,
+            23,
+            0,
+            8,
+            0,
+            "IMAGE"
+        ],
+        [
+            9,
+            10,
+            0,
+            9,
+            0,
+            "MASK"
+        ],
+        [
+            10,
+            8,
+            0,
+            10,
+            0,
+            "IMAGE"
+        ],
+        [
+            11,
+            17,
+            0,
+            11,
+            0,
+            "MASK"
+        ],
+        [
+            12,
+            23,
+            0,
+            12,
+            0,
+            "IMAGE"
+        ],
+        [
+            13,
+            11,
+            0,
+            12,
+            1,
+            "MASK"
+        ],
+        [
+            14,
+            12,
+            0,
+            13,
+            0,
+            "IMAGE"
+        ],
+        [
+            15,
+            23,
+            0,
+            14,
+            0,
+            "IMAGE"
+        ],
+        [
+            16,
+            14,
+            0,
+            15,
+            0,
+            "IMAGE"
+        ],
+        [
+            17,
+            15,
+            0,
+            16,
+            0,
+            "MASK"
+        ],
+        [
+            18,
+            16,
+            0,
+            17,
+            0,
+            "MASK"
+        ],
+        [
+            19,
+            7,
+            0,
+            17,
+            1,
+            "MASK"
+        ],
+        [
+            20,
+            12,
+            0,
+            18,
+            0,
+            "IMAGE"
+        ],
+        [
+            21,
+            11,
+            0,
+            18,
+            1,
+            "MASK"
+        ],
+        [
+            22,
+            19,
+            0,
+            18,
+            2,
+            "IMAGE"
+        ],
+        [
+            23,
+            1,
+            0,
+            18,
+            3,
+            "IMAGE"
+        ],
+        [
+            24,
+            3,
+            0,
+            18,
+            4,
+            "IMAGE"
+        ],
+        [
+            27,
+            1,
+            0,
+            22,
+            0,
+            "IMAGE"
+        ],
+        [
+            28,
+            22,
+            0,
+            23,
+            0,
+            "IMAGE"
+        ],
+        [
+            29,
+            23,
+            0,
+            24,
+            0,
+            "IMAGE"
+        ],
+        [
+            31,
+            5,
+            0,
+            26,
+            0,
+            "IMAGE"
+        ],
+        [
+            32,
+            3,
+            0,
+            27,
+            0,
+            "IMAGE"
+        ],
+        [
+            38,
+            18,
+            0,
+            31,
+            0,
+            "IMAGE"
+        ],
+        [
+            63,
+            18,
+            0,
+            47,
+            0,
+            "IMAGE"
+        ],
+        [
+            64,
+            1,
+            0,
+            47,
+            1,
+            "IMAGE"
+        ],
+        [
+            68,
+            47,
+            0,
+            30,
+            0,
+            "IMAGE"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "workspace_info": {
+            "id": "18ed93dd-b7e6-4f16-81cd-3266ca416986"
+        }
+    },
+    "version": 0.4
+}

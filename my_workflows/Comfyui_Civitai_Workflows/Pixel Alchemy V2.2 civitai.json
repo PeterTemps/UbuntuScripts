@@ -1,0 +1,461 @@
+{
+  "last_node_id": 114,
+  "last_link_id": 261,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        720,
+        -180
+      ],
+      "size": {
+        "0": 370,
+        "1": 100
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            255
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            254
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        ".Pixel Alchemy Hyper V2.0.safetensors"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "CheckpointSave",
+      "pos": [
+        1870,
+        -180
+      ],
+      "size": {
+        "0": 320,
+        "1": 100
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 256
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 261
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 254
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointSave"
+      },
+      "widgets_values": [
+        "Pixel Alchemy V2.1"
+      ]
+    },
+    {
+      "id": 109,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        720,
+        -20
+      ],
+      "size": {
+        "0": 370,
+        "1": 100
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            257
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        ".SD3 Clips G-L T5 fp8.safetensors"
+      ]
+    },
+    {
+      "id": 113,
+      "type": "CLIPLoader",
+      "pos": [
+        1100,
+        450
+      ],
+      "size": [
+        350,
+        80
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            260
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "SD3 Encoder T5 fp8.safetensors",
+        "stable_diffusion"
+      ]
+    },
+    {
+      "id": 95,
+      "type": "CR Model Merge Stack",
+      "pos": [
+        720,
+        210
+      ],
+      "size": {
+        "0": 350,
+        "1": 340
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_stack",
+          "type": "MODEL_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL_STACK",
+          "type": "MODEL_STACK",
+          "links": [
+            237
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "title": "CR Model Merge Stack",
+      "properties": {
+        "Node name for S&R": "CR Model Merge Stack"
+      },
+      "widgets_values": [
+        "On",
+        ".SD3 Clips G-L T5 fp8.safetensors",
+        1,
+        1,
+        "Off",
+        "None",
+        1,
+        1,
+        "Off",
+        "None",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 112,
+      "type": "LoraLoader",
+      "pos": [
+        1260,
+        -180
+      ],
+      "size": {
+        "0": 320,
+        "1": 130
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 255
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 257
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            256
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "title": "LoraLoader",
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "XL Add detail.safetensors",
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "id": 93,
+      "type": "CR Apply Model Merge",
+      "pos": [
+        1110,
+        210
+      ],
+      "size": {
+        "0": 330,
+        "1": 170
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_stack",
+          "type": "MODEL_STACK",
+          "link": 237
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            259
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "model_mix_info",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "show_help",
+          "type": "STRING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 3
+        }
+      ],
+      "title": "CR Apply Model Merge",
+      "properties": {
+        "Node name for S&R": "CR Apply Model Merge"
+      },
+      "widgets_values": [
+        "Recursive",
+        "Yes",
+        1
+      ]
+    },
+    {
+      "id": 114,
+      "type": "CLIPMergeAdd",
+      "pos": [
+        1540,
+        230
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip1",
+          "type": "CLIP",
+          "link": 259
+        },
+        {
+          "name": "clip2",
+          "type": "CLIP",
+          "link": 260
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            261
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPMergeAdd"
+      }
+    }
+  ],
+  "links": [
+    [
+      237,
+      95,
+      0,
+      93,
+      0,
+      "MODEL_STACK"
+    ],
+    [
+      254,
+      4,
+      2,
+      14,
+      2,
+      "VAE"
+    ],
+    [
+      255,
+      4,
+      0,
+      112,
+      0,
+      "MODEL"
+    ],
+    [
+      256,
+      112,
+      0,
+      14,
+      0,
+      "MODEL"
+    ],
+    [
+      257,
+      109,
+      1,
+      112,
+      1,
+      "CLIP"
+    ],
+    [
+      259,
+      93,
+      1,
+      114,
+      0,
+      "CLIP"
+    ],
+    [
+      260,
+      113,
+      0,
+      114,
+      1,
+      "CLIP"
+    ],
+    [
+      261,
+      114,
+      0,
+      14,
+      1,
+      "CLIP"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workspace_info": {
+      "id": "MmZB7K6WeRZx-XllaySLf"
+    },
+    "ds": {
+      "scale": 0.8769226950000008,
+      "offset": {
+        "0": 111.13228662343988,
+        "1": 449.2494981959154
+      }
+    }
+  },
+  "version": 0.4
+}
