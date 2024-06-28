@@ -2,3 +2,7 @@ models/**
 **/*.safetensors
 venv/**
 hf_hub/**
+my_workflows/**
+**/*.log
+my_workflows_old/**
+backups/input/**

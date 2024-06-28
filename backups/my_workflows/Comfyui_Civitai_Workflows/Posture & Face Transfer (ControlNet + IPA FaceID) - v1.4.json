@@ -1,0 +1,2587 @@
+{
+    "last_node_id": 49,
+    "last_link_id": 316,
+    "nodes": [
+        {
+            "id": 25,
+            "type": "PreviewImage",
+            "pos": [
+                710.4894642560839,
+                99.74956649537397
+            ],
+            "size": {
+                "0": 300,
+                "1": 270
+            },
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 63
+                }
+            ],
+            "title": "Face Preview",
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 14,
+            "type": "PreviewImage",
+            "pos": [
+                1860,
+                770
+            ],
+            "size": {
+                "0": 400,
+                "1": 470
+            },
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 38
+                }
+            ],
+            "title": "Hires Result (Preview)",
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 24,
+            "type": "IPAdapterUnifiedLoaderFaceID",
+            "pos": [
+                360.4894642560838,
+                99.74956649537397
+            ],
+            "size": {
+                "0": 320,
+                "1": 130
+            },
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 240
+                },
+                {
+                    "name": "ipadapter",
+                    "type": "IPADAPTER",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        58
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "ipadapter",
+                    "type": "IPADAPTER",
+                    "links": [
+                        59
+                    ],
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "IPAdapterUnifiedLoaderFaceID"
+            },
+            "widgets_values": [
+                "FACEID PLUS V2",
+                0.6,
+                "CUDA"
+            ],
+            "color": "#233",
+            "bgcolor": "#355",
+            "shape": 1
+        },
+        {
+            "id": 26,
+            "type": "Note",
+            "pos": [
+                -280,
+                100
+            ],
+            "size": {
+                "0": 250,
+                "1": 450
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "title": "Notes on IPA & FaceID",
+            "properties": {
+                "text": ""
+            },
+            "widgets_values": [
+                "Settings can be freely tampred with as there is nothing that can really break the workflow in these nodes.\n\nLoad Face Image\n----------------\n\nAs it says this is where a decent picture of teh face you want to use goes.\n\n\n\nUnified Loader & FaceID\n------------------------\n\nSettings should be good for most cases.\n\nIn the Files Download available on CivitAI.\n(https://civitai.com/models/428894)\n\nAll the files have been provided for:\n - FACEIDE PLUS - SD1.5 only\n and\n - FACEID PLUS V2\n\nOther preset versions can be found at (https://github.com/cubiq/ComfyUI_IPAdapter_plus)\n\n\n\nFace Preview\n-------------\n\nIs there more for troubleshooting if results are not as planned."
+            ],
+            "color": "#432",
+            "bgcolor": "#653",
+            "shape": 1
+        },
+        {
+            "id": 2,
+            "type": "BNK_CLIPTextEncodeAdvanced",
+            "pos": [
+                379.4646139722694,
+                749.232886859802
+            ],
+            "size": {
+                "0": 400,
+                "1": 230
+            },
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 242
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        54
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "title": "Positive Prompt",
+            "properties": {
+                "Node name for S&R": "BNK_CLIPTextEncodeAdvanced"
+            },
+            "widgets_values": [
+                "",
+                "none",
+                "comfy"
+            ],
+            "color": "#232",
+            "bgcolor": "#353",
+            "shape": 1
+        },
+        {
+            "id": 3,
+            "type": "BNK_CLIPTextEncodeAdvanced",
+            "pos": [
+                378.0324073153556,
+                1041.3049909034532
+            ],
+            "size": {
+                "0": 400,
+                "1": 220
+            },
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 243,
+                    "slot_index": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "CONDITIONING",
+                    "type": "CONDITIONING",
+                    "links": [
+                        55
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                }
+            ],
+            "title": "Negative Prompt",
+            "properties": {
+                "Node name for S&R": "BNK_CLIPTextEncodeAdvanced"
+            },
+            "widgets_values": [
+                "",
+                "none",
+                "comfy"
+            ],
+            "color": "#322",
+            "bgcolor": "#533",
+            "shape": 1
+        },
+        {
+            "id": 27,
+            "type": "Note",
+            "pos": [
+                -280,
+                750
+            ],
+            "size": {
+                "0": 250,
+                "1": 450
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "title": "Notes on Image Generation",
+            "properties": {
+                "text": ""
+            },
+            "widgets_values": [
+                "This is a basic Image Generation Workflow feel free to tamper with the settings to your hearts content.\n\nSD1.5, SDXL and PonyXL based models are able to be used with this Workflow.\n\n\n\nLoad Checkpoint (Adv.)\n-----------------------\n\nHas been outfitted with an internal Anything Everywhere Node that broadcasts the Baked in VAE to all open VAE pipes in the Workflow. If you use a model that doesn't have a Baked in VAE you'll have to couple a Load VAE into those pipes yourself.\n\n\nEmpty Latent Image (Adv.)\n--------------------------\n\nHas been outfitted with a Size Select Function. If you want to use a different size feel free to alter manual_width and height parameters.\n\n\n\nhiresfixScale\n--------------\n\nThis requires an ESRGAN based upscaler Model."
+            ],
+            "color": "#432",
+            "bgcolor": "#653",
+            "shape": 1
+        },
+        {
+            "id": 23,
+            "type": "IPAdapterFaceID",
+            "pos": [
+                360.4894642560838,
+                269.7495664953738
+            ],
+            "size": {
+                "0": 320,
+                "1": 320
+            },
+            "flags": {},
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 58
+                },
+                {
+                    "name": "ipadapter",
+                    "type": "IPADAPTER",
+                    "link": 59,
+                    "slot_index": 1
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 85
+                },
+                {
+                    "name": "image_negative",
+                    "type": "IMAGE",
+                    "link": null
+                },
+                {
+                    "name": "attn_mask",
+                    "type": "MASK",
+                    "link": null
+                },
+                {
+                    "name": "clip_vision",
+                    "type": "CLIP_VISION",
+                    "link": null
+                },
+                {
+                    "name": "insightface",
+                    "type": "INSIGHTFACE",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        61
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "face_image",
+                    "type": "IMAGE",
+                    "links": [
+                        63
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "IPAdapterFaceID"
+            },
+            "widgets_values": [
+                1,
+                1,
+                "linear",
+                "concat",
+                0,
+                1,
+                "V only"
+            ],
+            "color": "#233",
+            "bgcolor": "#355",
+            "shape": 1
+        },
+        {
+            "id": 33,
+            "type": "workflow/Load Checkpoint (Adv.)",
+            "pos": [
+                30,
+                750
+            ],
+            "size": {
+                "0": 320,
+                "1": 100
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        244
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        245
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Load Checkpoint (Adv.)"
+            },
+            "widgets_values": [
+                "SDXL\\proteus_v03.safetensors",
+                -1
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 39,
+            "type": "workflow/LoRA Stack",
+            "pos": [
+                30,
+                880
+            ],
+            "size": {
+                "0": 320,
+                "1": 200
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 244
+                },
+                {
+                    "name": "clip",
+                    "type": "CLIP",
+                    "link": 245
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "MODEL",
+                    "type": "MODEL",
+                    "links": [
+                        240,
+                        241
+                    ],
+                    "shape": 3
+                },
+                {
+                    "name": "CLIP",
+                    "type": "CLIP",
+                    "links": [
+                        242,
+                        243
+                    ],
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/LoRA Stack"
+            },
+            "widgets_values": [
+                "SDXL\\add-detail-xl.safetensors",
+                0.6,
+                1,
+                "SDXL\\add-detail-xl.safetensors",
+                0,
+                1,
+                "SDXL\\add-detail-xl.safetensors",
+                0,
+                1
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 8,
+            "type": "workflow/Empty Latent Image (Adv.)",
+            "pos": [
+                30,
+                1110
+            ],
+            "size": {
+                "0": 320,
+                "1": 150
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [
+                        27
+                    ],
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Empty Latent Image (Adv.)"
+            },
+            "widgets_values": [
+                "1024x1024 (1:1) - Square Large",
+                1,
+                0,
+                0,
+                1
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 13,
+            "type": "workflow/Unified KSampler",
+            "pos": [
+                1499.089762460567,
+                778.333799077762
+            ],
+            "size": {
+                "0": 300,
+                "1": 280
+            },
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 241
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 257
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 258,
+                    "slot_index": 2
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 315
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": null,
+                    "shape": 3
+                },
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        38
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Unified KSampler"
+            },
+            "widgets_values": [
+                0,
+                "randomize",
+                35,
+                3.8000000000000003,
+                "dpmpp_2m",
+                "karras",
+                0.35000000000000003
+            ],
+            "color": "#332922",
+            "bgcolor": "#593930",
+            "shape": 1
+        },
+        {
+            "id": 46,
+            "type": "PreviewImage",
+            "pos": [
+                749.700106088273,
+                1759.8655806411398
+            ],
+            "size": {
+                "0": 300,
+                "1": 270
+            },
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 313
+                }
+            ],
+            "title": "OpenPose Preview",
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 47,
+            "type": "workflow/Load Image (ControlNet)",
+            "pos": [
+                29.70010608827236,
+                1439.8655806411412
+            ],
+            "size": {
+                "0": 340,
+                "1": 590
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null,
+                    "shape": 3
+                },
+                {
+                    "name": "Depth Output",
+                    "type": "IMAGE",
+                    "links": [
+                        310,
+                        311
+                    ],
+                    "shape": 3
+                },
+                {
+                    "name": "OpenPose Output",
+                    "type": "IMAGE",
+                    "links": [
+                        312,
+                        313
+                    ],
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Load Image (ControlNet)"
+            },
+            "widgets_values": [
+                "example.png",
+                "image",
+                6.283185307179586,
+                0.1,
+                1024,
+                "enable",
+                "enable",
+                "enable",
+                1024
+            ],
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 17,
+            "type": "PreviewImage",
+            "pos": [
+                749.700106088273,
+                1439.8655806411412
+            ],
+            "size": {
+                "0": 300,
+                "1": 270
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 310
+                }
+            ],
+            "title": "Depth Map Preview",
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 35,
+            "type": "workflow/Load Face Image (+ClipVision)",
+            "pos": [
+                30,
+                100
+            ],
+            "size": {
+                "0": 300,
+                "1": 470
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "outputs": [
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null,
+                    "shape": 3
+                },
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        85
+                    ],
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Load Face Image (+ClipVision)"
+            },
+            "widgets_values": [
+                "example.png",
+                "image",
+                "LANCZOS",
+                "top",
+                0
+            ],
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 9,
+            "type": "workflow/Unified KSampler",
+            "pos": [
+                810,
+                750
+            ],
+            "size": {
+                "0": 300,
+                "1": 280
+            },
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL",
+                    "link": 61
+                },
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 255
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 256
+                },
+                {
+                    "name": "latent_image",
+                    "type": "LATENT",
+                    "link": 27
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "LATENT",
+                    "type": "LATENT",
+                    "links": [],
+                    "shape": 3
+                },
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        314,
+                        316
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Unified KSampler"
+            },
+            "widgets_values": [
+                0,
+                "randomize",
+                50,
+                3.8000000000000003,
+                "dpmpp_2m",
+                "karras",
+                1
+            ],
+            "color": "#223",
+            "bgcolor": "#335",
+            "shape": 1
+        },
+        {
+            "id": 28,
+            "type": "Note",
+            "pos": [
+                -280,
+                1440
+            ],
+            "size": {
+                "0": 250,
+                "1": 440
+            },
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "title": "Notes on the ControlNet",
+            "properties": {
+                "text": ""
+            },
+            "widgets_values": [
+                "All this does is use a Posture Image to create a Depth Map and uses that to make your prompt image Character use the same Posture. Overall the settings should not be toouched.\n\n\n\nLoad Image (ControlNet)\n------------------------\nHas been outfitted with Depth Map and OpenPose Outputs. all additional settings are there to be tampered with and should not break the Workflow.\n\n\n\nDepth Map & OpenPose Preview\n-----------------------------\n\nAre there for the purpose of troubleshooting and finetuning the Pre-Processor Settings.\n\n\n\nAdvanced Info\n--------------\n\nIf you Bypass the FaceID group and OpenPose nodes you can use this for Landscape pictures as well then the Depth Map will function as a Guide for how your landscape picture will look.\n\nYAY DOUBLE FUNCTIONS!!!"
+            ],
+            "color": "#432",
+            "bgcolor": "#653",
+            "shape": 1
+        },
+        {
+            "id": 48,
+            "type": "PreviewImage",
+            "pos": [
+                840,
+                1060
+            ],
+            "size": {
+                "0": 240,
+                "1": 220
+            },
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 314,
+                    "slot_index": 0
+                }
+            ],
+            "title": "Standard Preview",
+            "properties": {
+                "Node name for S&R": "PreviewImage"
+            },
+            "color": "#222",
+            "bgcolor": "#000",
+            "shape": 1
+        },
+        {
+            "id": 21,
+            "type": "workflow/Unified ControlNet (Depth)",
+            "pos": [
+                400,
+                1490
+            ],
+            "size": {
+                "0": 320,
+                "1": 170
+            },
+            "flags": {},
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 54
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 55
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 311
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "links": [
+                        253
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "links": [
+                        254
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Unified ControlNet (Depth)"
+            },
+            "widgets_values": [
+                "SDXL\\t2i-adapter-depth-midas-sdxl-1.0.safetensors",
+                1,
+                0,
+                1
+            ],
+            "color": "#323",
+            "bgcolor": "#535",
+            "shape": 1
+        },
+        {
+            "id": 45,
+            "type": "workflow/Unified ControlNet (OpenPose)",
+            "pos": [
+                400,
+                1810
+            ],
+            "size": {
+                "0": 320,
+                "1": 170
+            },
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "link": 253
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "link": 254
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 312
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "positive",
+                    "type": "CONDITIONING",
+                    "links": [
+                        255,
+                        257
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "negative",
+                    "type": "CONDITIONING",
+                    "links": [
+                        256,
+                        258
+                    ],
+                    "shape": 3,
+                    "slot_index": 1
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "workflow/Unified ControlNet (OpenPose)"
+            },
+            "widgets_values": [
+                "SDXL\\t2i-adapter-openpose-sdxl-1.0.safetensors",
+                1,
+                0,
+                1
+            ],
+            "color": "#323",
+            "bgcolor": "#535",
+            "shape": 1
+        },
+        {
+            "id": 49,
+            "type": "ttN hiresfixScale",
+            "pos": [
+                1170,
+                780
+            ],
+            "size": [
+                300,
+                250
+            ],
+            "flags": {},
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": null
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 316,
+                    "slot_index": 1
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "latent",
+                    "type": "LATENT",
+                    "links": [
+                        315
+                    ],
+                    "shape": 3,
+                    "slot_index": 0
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": null,
+                    "shape": 3
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "ttN hiresfixScale"
+            },
+            "widgets_values": [
+                "4x-AnimeSharp.pth",
+                true,
+                "nearest-exact",
+                "by percentage",
+                50,
+                1024,
+                1024,
+                1024,
+                "disabled",
+                "Hide",
+                "ComfyUI",
+                true
+            ],
+            "color": "#332922",
+            "bgcolor": "#593930",
+            "shape": 1
+        }
+    ],
+    "links": [
+        [
+            27,
+            8,
+            0,
+            9,
+            3,
+            "LATENT"
+        ],
+        [
+            38,
+            13,
+            1,
+            14,
+            0,
+            "IMAGE"
+        ],
+        [
+            54,
+            2,
+            0,
+            21,
+            0,
+            "CONDITIONING"
+        ],
+        [
+            55,
+            3,
+            0,
+            21,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            58,
+            24,
+            0,
+            23,
+            0,
+            "MODEL"
+        ],
+        [
+            59,
+            24,
+            1,
+            23,
+            1,
+            "IPADAPTER"
+        ],
+        [
+            61,
+            23,
+            0,
+            9,
+            0,
+            "MODEL"
+        ],
+        [
+            63,
+            23,
+            1,
+            25,
+            0,
+            "IMAGE"
+        ],
+        [
+            85,
+            35,
+            1,
+            23,
+            2,
+            "IMAGE"
+        ],
+        [
+            240,
+            39,
+            0,
+            24,
+            0,
+            "MODEL"
+        ],
+        [
+            241,
+            39,
+            0,
+            13,
+            0,
+            "MODEL"
+        ],
+        [
+            242,
+            39,
+            1,
+            2,
+            0,
+            "CLIP"
+        ],
+        [
+            243,
+            39,
+            1,
+            3,
+            0,
+            "CLIP"
+        ],
+        [
+            244,
+            33,
+            0,
+            39,
+            0,
+            "MODEL"
+        ],
+        [
+            245,
+            33,
+            1,
+            39,
+            1,
+            "CLIP"
+        ],
+        [
+            253,
+            21,
+            0,
+            45,
+            0,
+            "CONDITIONING"
+        ],
+        [
+            254,
+            21,
+            1,
+            45,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            255,
+            45,
+            0,
+            9,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            256,
+            45,
+            1,
+            9,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            257,
+            45,
+            0,
+            13,
+            1,
+            "CONDITIONING"
+        ],
+        [
+            258,
+            45,
+            1,
+            13,
+            2,
+            "CONDITIONING"
+        ],
+        [
+            310,
+            47,
+            1,
+            17,
+            0,
+            "IMAGE"
+        ],
+        [
+            311,
+            47,
+            1,
+            21,
+            2,
+            "IMAGE"
+        ],
+        [
+            312,
+            47,
+            2,
+            45,
+            2,
+            "IMAGE"
+        ],
+        [
+            313,
+            47,
+            2,
+            46,
+            0,
+            "IMAGE"
+        ],
+        [
+            314,
+            9,
+            1,
+            48,
+            0,
+            "IMAGE"
+        ],
+        [
+            315,
+            49,
+            0,
+            13,
+            3,
+            "LATENT"
+        ],
+        [
+            316,
+            9,
+            1,
+            49,
+            1,
+            "IMAGE"
+        ]
+    ],
+    "groups": [
+        {
+            "title": "ControlNet",
+            "bounding": [
+                2,
+                1341,
+                1077,
+                718
+            ],
+            "color": "#a1309b",
+            "font_size": 24,
+            "locked": false
+        },
+        {
+            "title": "IPAdapter + FaceID",
+            "bounding": [
+                2,
+                2,
+                1037,
+                617
+            ],
+            "color": "#8AA",
+            "font_size": 24,
+            "locked": true
+        },
+        {
+            "title": "Image Generation",
+            "bounding": [
+                2,
+                651,
+                2317,
+                658
+            ],
+            "color": "#88A",
+            "font_size": 24,
+            "locked": true
+        },
+        {
+            "title": "Hires.Fix",
+            "bounding": [
+                1141,
+                685,
+                1148,
+                584
+            ],
+            "color": "#b06634",
+            "font_size": 24,
+            "locked": true
+        }
+    ],
+    "config": {},
+    "extra": {
+        "groupNodes": {
+            "Empty Latent Image (Adv.)": {
+                "nodes": [
+                    {
+                        "type": "CascadeResolutions",
+                        "pos": [
+                            -150,
+                            530
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 150
+                        },
+                        "flags": {},
+                        "order": 1,
+                        "mode": 0,
+                        "outputs": [
+                            {
+                                "name": "width",
+                                "type": "INT",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "height",
+                                "type": "INT",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 1
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "CascadeResolutions"
+                        },
+                        "widgets_values": [
+                            "768x768 (1:1) - Square Medium",
+                            1,
+                            0,
+                            0
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "EmptyLatentImage",
+                        "pos": [
+                            230,
+                            540
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 110
+                        },
+                        "flags": {},
+                        "order": 4,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "width",
+                                "type": "INT",
+                                "link": null,
+                                "widget": {
+                                    "name": "width"
+                                }
+                            },
+                            {
+                                "name": "height",
+                                "type": "INT",
+                                "link": null,
+                                "widget": {
+                                    "name": "height"
+                                }
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "LATENT",
+                                "type": "LATENT",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "EmptyLatentImage"
+                        },
+                        "widgets_values": [
+                            512,
+                            512,
+                            1
+                        ],
+                        "index": 1
+                    }
+                ],
+                "links": [
+                    [
+                        0,
+                        0,
+                        1,
+                        0,
+                        7,
+                        "INT"
+                    ],
+                    [
+                        0,
+                        1,
+                        1,
+                        1,
+                        7,
+                        "INT"
+                    ]
+                ],
+                "external": [
+                    [
+                        1,
+                        0,
+                        "LATENT"
+                    ]
+                ]
+            },
+            "Unified KSampler": {
+                "nodes": [
+                    {
+                        "type": "KSampler",
+                        "pos": [
+                            1130,
+                            70
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 260
+                        },
+                        "flags": {},
+                        "order": 4,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "positive",
+                                "type": "CONDITIONING",
+                                "link": null
+                            },
+                            {
+                                "name": "negative",
+                                "type": "CONDITIONING",
+                                "link": null
+                            },
+                            {
+                                "name": "latent_image",
+                                "type": "LATENT",
+                                "link": null,
+                                "slot_index": 3
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "LATENT",
+                                "type": "LATENT",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "KSampler"
+                        },
+                        "widgets_values": [
+                            0,
+                            "randomize",
+                            20,
+                            8,
+                            "euler",
+                            "normal",
+                            1
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "VAEDecode",
+                        "pos": [
+                            1470,
+                            70
+                        ],
+                        "size": {
+                            "0": 210,
+                            "1": 50
+                        },
+                        "flags": {},
+                        "order": 5,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "samples",
+                                "type": "LATENT",
+                                "link": null
+                            },
+                            {
+                                "name": "vae",
+                                "type": "VAE",
+                                "link": null,
+                                "slot_index": 1
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": null,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "VAEDecode"
+                        },
+                        "index": 1
+                    }
+                ],
+                "links": [
+                    [
+                        null,
+                        0,
+                        0,
+                        0,
+                        1,
+                        "MODEL"
+                    ],
+                    [
+                        null,
+                        0,
+                        0,
+                        1,
+                        2,
+                        "CONDITIONING"
+                    ],
+                    [
+                        null,
+                        0,
+                        0,
+                        2,
+                        3,
+                        "CONDITIONING"
+                    ],
+                    [
+                        null,
+                        0,
+                        0,
+                        3,
+                        8,
+                        "LATENT"
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0,
+                        4,
+                        "LATENT"
+                    ],
+                    [
+                        null,
+                        2,
+                        1,
+                        1,
+                        1,
+                        "VAE"
+                    ]
+                ],
+                "external": [],
+                "config": {
+                    "0": {
+                        "output": {
+                            "0": {
+                                "visible": true
+                            }
+                        }
+                    }
+                }
+            },
+            "Load Checkpoint (Adv.)": {
+                "nodes": [
+                    {
+                        "type": "CheckpointLoaderSimple",
+                        "pos": [
+                            30,
+                            780
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 100
+                        },
+                        "flags": {},
+                        "order": 6,
+                        "mode": 0,
+                        "outputs": [
+                            {
+                                "name": "MODEL",
+                                "type": "MODEL",
+                                "links": [],
+                                "shape": 3
+                            },
+                            {
+                                "name": "CLIP",
+                                "type": "CLIP",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 1
+                            },
+                            {
+                                "name": "VAE",
+                                "type": "VAE",
+                                "links": [],
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "CheckpointLoaderSimple"
+                        },
+                        "widgets_values": [
+                            "SDXL\\proteus_v03.safetensors"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "CLIPSetLastLayer",
+                        "pos": [
+                            -590,
+                            640
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 60
+                        },
+                        "flags": {},
+                        "order": 9,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "clip",
+                                "type": "CLIP",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "CLIP",
+                                "type": "CLIP",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "CLIPSetLastLayer"
+                        },
+                        "widgets_values": [
+                            -1
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "type": "Anything Everywhere",
+                        "pos": [
+                            150,
+                            970
+                        ],
+                        "size": {
+                            "0": 210,
+                            "1": 30
+                        },
+                        "flags": {},
+                        "order": 10,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "anything",
+                                "type": "*",
+                                "link": null,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "group_restricted": 0,
+                            "color_restricted": 0,
+                            "Node name for S&R": "Anything Everywhere"
+                        },
+                        "widgets_values": [],
+                        "index": 2
+                    }
+                ],
+                "links": [
+                    [
+                        0,
+                        1,
+                        1,
+                        0,
+                        30,
+                        "CLIP"
+                    ],
+                    [
+                        0,
+                        2,
+                        2,
+                        0,
+                        30,
+                        "VAE"
+                    ]
+                ],
+                "external": [
+                    [
+                        0,
+                        0,
+                        "MODEL"
+                    ],
+                    [
+                        1,
+                        0,
+                        "CLIP"
+                    ]
+                ]
+            },
+            "Unified ControlNet (Depth)": {
+                "nodes": [
+                    {
+                        "type": "ControlNetLoader",
+                        "pos": [
+                            830,
+                            -750
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 60
+                        },
+                        "flags": {},
+                        "order": 3,
+                        "mode": 0,
+                        "outputs": [
+                            {
+                                "name": "CONTROL_NET",
+                                "type": "CONTROL_NET",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "ControlNetLoader"
+                        },
+                        "widgets_values": [
+                            "SDXL\\t2i-adapter-depth-midas-sdxl-1.0.safetensors"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "ControlNetApplyAdvanced",
+                        "pos": [
+                            1100,
+                            -610
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 170
+                        },
+                        "flags": {},
+                        "order": 7,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "positive",
+                                "type": "CONDITIONING",
+                                "link": null
+                            },
+                            {
+                                "name": "negative",
+                                "type": "CONDITIONING",
+                                "link": null
+                            },
+                            {
+                                "name": "control_net",
+                                "type": "CONTROL_NET",
+                                "link": null
+                            },
+                            {
+                                "name": "image",
+                                "type": "IMAGE",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "positive",
+                                "type": "CONDITIONING",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "negative",
+                                "type": "CONDITIONING",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 1
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "ControlNetApplyAdvanced"
+                        },
+                        "widgets_values": [
+                            1,
+                            0,
+                            1
+                        ],
+                        "index": 1
+                    }
+                ],
+                "links": [
+                    [
+                        null,
+                        0,
+                        1,
+                        0,
+                        2,
+                        "CONDITIONING"
+                    ],
+                    [
+                        null,
+                        0,
+                        1,
+                        1,
+                        3,
+                        "CONDITIONING"
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        2,
+                        19,
+                        "CONTROL_NET"
+                    ],
+                    [
+                        null,
+                        1,
+                        1,
+                        3,
+                        18,
+                        "IMAGE"
+                    ]
+                ],
+                "external": [
+                    [
+                        1,
+                        0,
+                        "CONDITIONING"
+                    ],
+                    [
+                        1,
+                        1,
+                        "CONDITIONING"
+                    ]
+                ]
+            },
+            "Load Face Image (+ClipVision)": {
+                "nodes": [
+                    {
+                        "type": "LoadImage",
+                        "pos": [
+                            30,
+                            100
+                        ],
+                        "size": {
+                            "0": 300,
+                            "1": 310
+                        },
+                        "flags": {},
+                        "order": 6,
+                        "mode": 0,
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "MASK",
+                                "type": "MASK",
+                                "links": null,
+                                "shape": 3
+                            }
+                        ],
+                        "title": "Load Face Image",
+                        "properties": {
+                            "Node name for S&R": "LoadImage"
+                        },
+                        "widgets_values": [
+                            "example.png",
+                            "image"
+                        ],
+                        "color": "#222",
+                        "bgcolor": "#000",
+                        "shape": 1,
+                        "index": 0
+                    },
+                    {
+                        "type": "PrepImageForClipVision",
+                        "pos": [
+                            -650,
+                            570
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 110
+                        },
+                        "flags": {},
+                        "order": 11,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "image",
+                                "type": "IMAGE",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "PrepImageForClipVision"
+                        },
+                        "widgets_values": [
+                            "LANCZOS",
+                            "top",
+                            0
+                        ],
+                        "index": 1
+                    }
+                ],
+                "links": [
+                    [
+                        0,
+                        0,
+                        1,
+                        0,
+                        22,
+                        "IMAGE"
+                    ]
+                ],
+                "external": [
+                    [
+                        1,
+                        0,
+                        "IMAGE"
+                    ]
+                ]
+            },
+            "LoRA Stack": {
+                "nodes": [
+                    {
+                        "type": "LoraLoader",
+                        "pos": [
+                            -900,
+                            530
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 130
+                        },
+                        "flags": {},
+                        "order": 8,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null
+                            },
+                            {
+                                "name": "clip",
+                                "type": "CLIP",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "MODEL",
+                                "type": "MODEL",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "CLIP",
+                                "type": "CLIP",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 1
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "LoraLoader"
+                        },
+                        "widgets_values": [
+                            "SD1.5\\3DMM_V12.safetensors",
+                            1,
+                            1
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "LoraLoader",
+                        "pos": [
+                            -890,
+                            840
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 130
+                        },
+                        "flags": {},
+                        "order": 9,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null
+                            },
+                            {
+                                "name": "clip",
+                                "type": "CLIP",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "MODEL",
+                                "type": "MODEL",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "CLIP",
+                                "type": "CLIP",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 1
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "LoraLoader"
+                        },
+                        "widgets_values": [
+                            "SD1.5\\3DMM_V12.safetensors",
+                            1,
+                            1
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "type": "LoraLoader",
+                        "pos": [
+                            -900,
+                            1090
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 130
+                        },
+                        "flags": {},
+                        "order": 10,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "model",
+                                "type": "MODEL",
+                                "link": null
+                            },
+                            {
+                                "name": "clip",
+                                "type": "CLIP",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "MODEL",
+                                "type": "MODEL",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "CLIP",
+                                "type": "CLIP",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 1
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "LoraLoader"
+                        },
+                        "widgets_values": [
+                            "SD1.5\\3DMM_V12.safetensors",
+                            1,
+                            1
+                        ],
+                        "index": 2
+                    }
+                ],
+                "links": [
+                    [
+                        null,
+                        0,
+                        0,
+                        0,
+                        33,
+                        "MODEL"
+                    ],
+                    [
+                        null,
+                        1,
+                        0,
+                        1,
+                        33,
+                        "CLIP"
+                    ],
+                    [
+                        0,
+                        0,
+                        1,
+                        0,
+                        36,
+                        "MODEL"
+                    ],
+                    [
+                        0,
+                        1,
+                        1,
+                        1,
+                        36,
+                        "CLIP"
+                    ],
+                    [
+                        1,
+                        0,
+                        2,
+                        0,
+                        37,
+                        "MODEL"
+                    ],
+                    [
+                        1,
+                        1,
+                        2,
+                        1,
+                        37,
+                        "CLIP"
+                    ]
+                ],
+                "external": [
+                    [
+                        2,
+                        0,
+                        "MODEL"
+                    ],
+                    [
+                        2,
+                        1,
+                        "CLIP"
+                    ]
+                ],
+                "config": {
+                    "0": {
+                        "input": {
+                            "strength_clip": {
+                                "visible": false
+                            },
+                            "lora_name": {
+                                "name": "LoRA #1"
+                            },
+                            "strength_model": {
+                                "name": "strength_model #1"
+                            }
+                        }
+                    },
+                    "1": {
+                        "input": {
+                            "strength_clip": {
+                                "visible": false
+                            },
+                            "lora_name": {
+                                "name": "LoRA #2"
+                            },
+                            "strength_model": {
+                                "name": "strength_model #2"
+                            }
+                        }
+                    },
+                    "2": {
+                        "input": {
+                            "strength_clip": {
+                                "visible": false
+                            },
+                            "lora_name": {
+                                "name": "LoRA #3"
+                            },
+                            "strength_model": {
+                                "name": "strength_model #3"
+                            }
+                        }
+                    }
+                }
+            },
+            "Unified ControlNet (OpenPose)": {
+                "nodes": [
+                    {
+                        "type": "ControlNetLoader",
+                        "pos": [
+                            490,
+                            1990
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 60
+                        },
+                        "flags": {},
+                        "order": 7,
+                        "mode": 0,
+                        "outputs": [
+                            {
+                                "name": "CONTROL_NET",
+                                "type": "CONTROL_NET",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "ControlNetLoader"
+                        },
+                        "widgets_values": [
+                            "SDXL\\t2i-adapter-openpose-sdxl-1.0.safetensors"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "ControlNetApplyAdvanced",
+                        "pos": [
+                            950,
+                            1990
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 170
+                        },
+                        "flags": {},
+                        "order": 15,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "positive",
+                                "type": "CONDITIONING",
+                                "link": null
+                            },
+                            {
+                                "name": "negative",
+                                "type": "CONDITIONING",
+                                "link": null
+                            },
+                            {
+                                "name": "control_net",
+                                "type": "CONTROL_NET",
+                                "link": null
+                            },
+                            {
+                                "name": "image",
+                                "type": "IMAGE",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "positive",
+                                "type": "CONDITIONING",
+                                "links": null,
+                                "shape": 3
+                            },
+                            {
+                                "name": "negative",
+                                "type": "CONDITIONING",
+                                "links": null,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "ControlNetApplyAdvanced"
+                        },
+                        "widgets_values": [
+                            1,
+                            0,
+                            1
+                        ],
+                        "index": 1
+                    }
+                ],
+                "links": [
+                    [
+                        0,
+                        0,
+                        1,
+                        2,
+                        44,
+                        "CONTROL_NET"
+                    ],
+                    [
+                        null,
+                        0,
+                        1,
+                        3,
+                        42,
+                        "IMAGE"
+                    ]
+                ],
+                "external": []
+            },
+            "Load Image (ControlNet)": {
+                "nodes": [
+                    {
+                        "type": "LoadImage",
+                        "pos": [
+                            30,
+                            1410
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 310
+                        },
+                        "flags": {},
+                        "order": 6,
+                        "mode": 0,
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "MASK",
+                                "type": "MASK",
+                                "links": null,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "LoadImage"
+                        },
+                        "widgets_values": [
+                            "example.png",
+                            "image"
+                        ],
+                        "index": 0
+                    },
+                    {
+                        "type": "MiDaS-DepthMapPreprocessor",
+                        "pos": [
+                            430,
+                            1410
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 110
+                        },
+                        "flags": {},
+                        "order": 8,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "image",
+                                "type": "IMAGE",
+                                "link": null
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "MiDaS-DepthMapPreprocessor"
+                        },
+                        "widgets_values": [
+                            6.283185307179586,
+                            0.1,
+                            1024
+                        ],
+                        "index": 1
+                    },
+                    {
+                        "type": "OpenposePreprocessor",
+                        "pos": [
+                            400,
+                            1580
+                        ],
+                        "size": {
+                            "0": 320,
+                            "1": 150
+                        },
+                        "flags": {},
+                        "order": 9,
+                        "mode": 0,
+                        "inputs": [
+                            {
+                                "name": "image",
+                                "type": "IMAGE",
+                                "link": null,
+                                "slot_index": 0
+                            }
+                        ],
+                        "outputs": [
+                            {
+                                "name": "IMAGE",
+                                "type": "IMAGE",
+                                "links": [],
+                                "shape": 3,
+                                "slot_index": 0
+                            },
+                            {
+                                "name": "POSE_KEYPOINT",
+                                "type": "POSE_KEYPOINT",
+                                "links": null,
+                                "shape": 3
+                            }
+                        ],
+                        "properties": {
+                            "Node name for S&R": "OpenposePreprocessor"
+                        },
+                        "widgets_values": [
+                            "enable",
+                            "enable",
+                            "enable",
+                            1024
+                        ],
+                        "index": 2
+                    }
+                ],
+                "links": [
+                    [
+                        0,
+                        0,
+                        1,
+                        0,
+                        40,
+                        "IMAGE"
+                    ],
+                    [
+                        0,
+                        0,
+                        2,
+                        0,
+                        40,
+                        "IMAGE"
+                    ]
+                ],
+                "external": [
+                    [
+                        1,
+                        0,
+                        "IMAGE"
+                    ],
+                    [
+                        2,
+                        0,
+                        "IMAGE"
+                    ]
+                ],
+                "config": {
+                    "1": {
+                        "output": {
+                            "0": {
+                                "name": "Depth Output"
+                            }
+                        },
+                        "input": {
+                            "a": {
+                                "name": "Depth - a"
+                            },
+                            "bg_threshold": {
+                                "name": "Depth - bg_treshold"
+                            },
+                            "resolution": {
+                                "name": "Depth - resolution"
+                            }
+                        }
+                    },
+                    "2": {
+                        "output": {
+                            "0": {
+                                "name": "OpenPose Output"
+                            },
+                            "1": {
+                                "visible": false
+                            }
+                        },
+                        "input": {
+                            "detect_hand": {
+                                "name": "OP - detect_hand"
+                            },
+                            "detect_body": {
+                                "name": "OP - detect_body"
+                            },
+                            "detect_face": {
+                                "name": "OP - detect_face"
+                            },
+                            "resolution": {
+                                "name": "OP - resolution"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ds": {
+            "scale": 0.5644739300537773,
+            "offset": {
+                "0": 872.7457936584117,
+                "1": 6.208711223329701
+            }
+        },
+        "workspace_info": {
+            "id": "fd8edfd2-b0f3-4c8e-af9e-9f54f11c2764"
+        }
+    },
+    "version": 0.4
+}

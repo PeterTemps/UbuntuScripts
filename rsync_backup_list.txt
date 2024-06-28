@@ -1,0 +1,5 @@
+/media/piotr/HOME2/VsCode/ComfyUI/custom_nodes
+/media/piotr/HOME2/VsCode/ComfyUI/input
+/media/piotr/HOME2/VsCode/ComfyUI/input2
+/media/piotr/HOME2/VsCode/ComfyUI/my_workflows
+/media/piotr/HOME2/VsCode/ComfyUI/output
